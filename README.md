@@ -1,5 +1,6 @@
 # FrenchTouch
-FrenchTouch is a modern deterministic neutron transport solver for reactor simulations.
+FrenchTouch is a modern deterministic neutron transport solver for reactor simulations. The 
+source code project is written in C/C++.
 
 # Installation
 
