@@ -3,9 +3,9 @@ Demeter (DEterMinistic nEutron Transport solvER) is a modern and open source det
 
 Numerically, the physics part is coded in C++ with Python as a user interface for easy and fast utilisations. Cmake is used to build configurations. 
 
-
-
 # Installation
+
+# Dependencies
 
 # Troubleshooting
 
