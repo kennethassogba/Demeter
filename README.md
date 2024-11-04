@@ -7,12 +7,14 @@ Numerically, the physics part is coded in C++ with Python as a user interface fo
 
 ## Roadmap
 
-- [ ] Choose a code style (Google style eg) and setup a linter
-- [ ] Setup Cmake (with asan, tsan...)
-- [ ] Run a simple main.cpp
-- [ ] Setup Github Action
-- [ ] Talk about doc style (eg doc string and the way to generate it automatically
-- [ ] Talk about tests (use eg catch or gtest)
+- [ ] Choose a code style (Google style eg) and setup a linter.
+- [ ] Setup Cmake (with [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), MemorySanitizer, LeakSanitizer, ...).
+- [ ] Run a simple main.cpp.
+- [ ] Setup directory structure.
+- [ ] Setup Github Action.
+- [ ] Talk about doc style (eg doc string) and the way to generate it automatically.
+- [ ] Talk about tests (use eg catch or gtest).
+- [ ] Design a logo.
 
 ## Installation
 

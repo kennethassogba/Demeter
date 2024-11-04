@@ -1,0 +1,18 @@
+build
+.vscode
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Compiled Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.a
+*.lib
