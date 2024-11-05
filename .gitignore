@@ -1,5 +1,10 @@
-build
+# Editors configs
 .vscode
+
+# Build directories
+build
+release
+debug
 
 # Executables
 *.exe
