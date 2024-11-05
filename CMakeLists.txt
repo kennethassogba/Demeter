@@ -20,6 +20,10 @@ endif()
 # find_package(MPI)
 # set(LINK_LIBS ${LINK_LIBS} MPI::MPI_CXX)
 
+# Eigen
+# find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+# set(LINK_LIBS ${LINK_LIBS} Eigen3::Eigen)
+
 
 # Executables
 
