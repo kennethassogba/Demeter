@@ -10,6 +10,8 @@ Numerically, the physics part is coded in C++ with Python as a user interface fo
 
 - [x] Run a simple main.cpp.
 - [x] Setup Cmake (overkill for now but usefull in the future).
+- [x] Add and test Eigen.
+- [x] Add AddressSanitizer, ThreadSanitizer, MemorySanitizer.
 - [ ] Choose a code style (Google style eg) and setup a linter.
 - [ ] Setup directory structure.
 - [ ] Write a first real but simple code.
@@ -17,7 +19,12 @@ Numerically, the physics part is coded in C++ with Python as a user interface fo
 - [ ] Talk about tests (use eg catch or gtest).
 - [ ] Setup Github Action.
 - [ ] Design a logo.
-- [ ] Add with [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html), MemorySanitizer, LeakSanitizer, ....
+
+## Requirements
+
+A C++ compiler compatible with at least version 17 of the standard, eg. GCC 8, Clang 5 and later.
+- CMake `apt install cmake`
+- Eigen `apt install libeigen3-dev`
 
 ## Build and Run
 
@@ -40,18 +47,17 @@ Then try
 ./main
 ```
 
-### Debug or Release build
-- Configure a debug build
-`cmake -S . -B build/ -D CMAKE_BUILD_TYPE=Debug`
-- Actually build the binaries
-`cmake --build build/`
+### Configure a debug build
+```bash
+cmake -S . -B build/ -D CMAKE_BUILD_TYPE=Debug
+cmake --build build/ # build the binaries
+```
 
-- Configure a release build
-`cmake -S . -B build/ -D CMAKE_BUILD_TYPE=Release`
-- Build release binaries
-`cmake --build build/`
-
-## Dependencies
+### Configure a release build
+```bash
+cmake -S . -B build/ -D CMAKE_BUILD_TYPE=Release
+cmake --build build/
+```
 
 ## Troubleshooting
 
