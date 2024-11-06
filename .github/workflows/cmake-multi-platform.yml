@@ -76,10 +76,10 @@ jobs:
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
     - name: Run example
-      run: ./${{github.workspace}}/build/main
+      run: ${{github.workspace}}/build/main
     
     - name: Run example
-      run: ./${{github.workspace}}/build/simple
+      run: ${{github.workspace}}/build/simple
 
     # - name: Test
     #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
