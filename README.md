@@ -60,6 +60,12 @@ cmake -S . -B build/ -D CMAKE_BUILD_TYPE=Release
 cmake --build build/
 ```
 
+### Configure a release with OpenMP
+```bash
+cmake -S . -B build -DUSE_OPENMP=ON
+cmake --build build
+```
+
 ## Troubleshooting
 
 ## Reference
