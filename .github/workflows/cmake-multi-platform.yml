@@ -79,7 +79,7 @@ jobs:
       run: ${{github.workspace}}/build/main
     
     - name: Run example
-      run: ${{github.workspace}}/build/simple
+      run: ${{github.workspace}}/build/matrix_eigen
 
     # - name: Test
     #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
