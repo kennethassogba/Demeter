@@ -22,10 +22,14 @@ set(LINK_LIBS ${LINK_LIBS} Eigen3::Eigen)
 
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
+target_compile_options(main PUBLIC ${OpenMP_CXX_FLAGS})
 target_link_libraries(main PUBLIC ${LINK_LIBS})
 
 add_executable(matrix_eigen examples/matrix_eigen.cpp) # create an executable using the specified file
+target_compile_options(matrix_eigen PUBLIC ${OpenMP_CXX_FLAGS})
 target_link_libraries(matrix_eigen PUBLIC ${LINK_LIBS})
 
+find_package(OpenMP REQUIRED)
 add_executable(loop_omp examples/loop_omp.cpp) # create an executable using the specified file
-target_link_libraries(loop_omp PUBLIC ${LINK_LIBS})        
+target_compile_options(loop_omp PUBLIC ${OpenMP_CXX_FLAGS})
+target_link_libraries(loop_omp PUBLIC ${OpenMP_CXX_FLAGS})
