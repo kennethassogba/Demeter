@@ -1,21 +1,22 @@
 cmake_minimum_required(VERSION 3.4...3.31) # specifying a minimum CMake version
 project(demeter) # set the project name
 
+set(CMAKE_CXX_STANDARD 14) # specifying the C++ Standard
+set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic") # probably not the best variable name
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} ${OpenMP_CXX_FLAGS}")
+
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined")
+
 # include_directories(include)
 # OpenMP
 find_package(OpenMP)
-set(LINK_LIBS ${LINK_LIBS} ${OpenMP_CXX_LIBRARIES})
+set(LINK_LIBS ${LINK_LIBS} ${OpenMP_CXX_LIB_NAMES})
 
 # Eigen
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 set(LINK_LIBS ${LINK_LIBS} Eigen3::Eigen)
 
-set(CMAKE_CXX_STANDARD 14) # specifying the C++ Standard
-set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic") # probably not the best variable name
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} ${OpenMP_CXX_FLAGS} ${OpenMP_CXX_LIB_NAMES}")
-
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
-set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined")
 
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
