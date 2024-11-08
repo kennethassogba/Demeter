@@ -5,14 +5,21 @@ set(CMAKE_CXX_STANDARD 14) # specifying the C++ Standard
 set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic") # probably not the best variable name
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -funroll-loops -funroll-all-loops -DNDEBUG")
-set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fopenmp -march=native -funroll-loops -funroll-all-loops -DNDEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fopenmp -fsanitize=address,undefined")
 
 # include_directories(include)
+
+# OpenMP
+find_package(OpenMP)
+if(OpenMP_CXX_FOUND)
+    set(LINK_LIBS ${LINK_LIBS} ${OpenMP_CXX_LIBRARIES})
+endif()
 
 # Eigen
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 set(LINK_LIBS ${LINK_LIBS} Eigen3::Eigen)
+
 
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
@@ -21,21 +28,5 @@ target_link_libraries(main PUBLIC ${LINK_LIBS})
 add_executable(matrix_eigen examples/matrix_eigen.cpp) # create an executable using the specified file
 target_link_libraries(matrix_eigen PUBLIC ${LINK_LIBS})
 
-
-# OpenMP activation
-option(USE_OPENMP "Enable OpenMP support" OFF)
-
-# If ON search for OpenMP 
-if(USE_OPENMP)
-    find_package(OpenMP REQUIRED)
-    if(OpenMP_CXX_FOUND)
-        add_executable(loop_omp examples/loop_omp.cpp) # create an executable using the specified file
-        target_compile_options(loop_omp PUBLIC ${OpenMP_CXX_FLAGS})
-        target_link_libraries(loop_omp PUBLIC ${OpenMP_CXX_FLAGS})
-        message(STATUS "OpenMP flags added for GCC/Clang: ${OpenMP_CXX_FLAGS}")
-    else()
-        message(FATAL_ERROR "OpenMP was requested but could not be found.")
-    endif()
-else()
-    message(STATUS "OpenMP support disabled")
-endif()
+add_executable(loop_omp examples/loop_omp.cpp) # create an executable using the specified file
+target_link_libraries(loop_omp PUBLIC ${OpenMP_CXX_FLAGS})        

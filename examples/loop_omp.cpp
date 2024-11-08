@@ -5,7 +5,7 @@
 int main() {
     // Initialisation d'un grand tableau pour simuler une charge de travail
     const int N = 1000000;
-    std::vector<int> array(N, 1); // Crée un tableau avec des valeurs de 1
+    std::vector<int> tab(N, 1); // Crée un tableau avec des valeurs de 1
     int sum = 0;
 
     // Mesurer le temps avant le calcul
@@ -14,7 +14,7 @@ int main() {
     // Début de la région parallèle
     #pragma omp parallel for reduction(+:sum)
     for (int i = 0; i < N; ++i) {
-        sum += array[i];
+        sum += tab[i];
     }
 
     // Mesurer le temps après le calcul

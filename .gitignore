@@ -21,3 +21,7 @@ debug
 # Compiled Static libraries
 *.a
 *.lib
+
+# VIM Tampon file 
+*.swp
+*.swo
