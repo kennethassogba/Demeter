@@ -31,10 +31,10 @@ jobs:
           #   c_compiler: cl
           #   cpp_compiler: cl
           - os: ubuntu-latest
-            # c_compiler: gcc
+            c_compiler: gcc
             cpp_compiler: g++
           - os: ubuntu-latest
-            # c_compiler: clang
+            c_compiler: clang
             cpp_compiler: clang++
         # exclude:
         #   - os: windows-latest
@@ -60,6 +60,9 @@ jobs:
       shell: bash
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+    - name: Install xmllint
+      run: sudo apt install -y clang-tidy clang-format libomp-dev
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
