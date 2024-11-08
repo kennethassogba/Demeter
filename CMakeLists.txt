@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14) # specifying the C++ Standard
 set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic") # probably not the best variable name
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} ${OpenMP_CXX_FLAGS}")
 
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -funroll-loops -funroll-all-loops -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined")
 
 # include_directories(include)
