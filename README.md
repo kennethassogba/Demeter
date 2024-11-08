@@ -23,9 +23,11 @@ Numerically, the physics part is coded in C++ with Python as a user interface fo
 
 ## Requirements
 
-A C++ compiler compatible with at least version 17 of the standard, eg. GCC 8, Clang 5 and later.
-- CMake `apt install cmake`
-- Eigen `apt install libeigen3-dev`
+- A C++ compiler compatible with at least version 17 of the standard, eg:
+  - GCC 8 and later `apt install build-essential`,
+  - Clang 5 and later `apt install clang libomp-dev clang-tidy clang-format`.
+- CMake `apt install cmake`.
+- Eigen `apt install libeigen3-dev`.
 
 ## Build and Run
 
@@ -48,16 +50,20 @@ Then try
 ./main
 ```
 
-### Configure a debug build
+### Configure the build type: Debug or Release
 ```bash
 cmake -S . -B build/ -D CMAKE_BUILD_TYPE=Debug
 cmake --build build/ # build the binaries
 ```
 
-### Configure a release build
+### Choose a compiler
 ```bash
-cmake -S . -B build/ -D CMAKE_BUILD_TYPE=Release
-cmake --build build/
+cmake -S . -B build/ -D CMAKE_CXX_COMPILER=clang++-18
+```
+
+### Append compiler flags
+```bash
+cmake -S . -B build/ -D CMAKE_CXX_FLAGS=-fsanitize=memory
 ```
 
 ## Troubleshooting
