@@ -20,6 +20,8 @@ add_executable(matrix_eigen examples/matrix_eigen.cpp) # create an executable us
 target_link_libraries(matrix_eigen PUBLIC ${LINK_LIBS})
 
 find_package(OpenMP)
-add_executable(loop_omp examples/loop_omp.cpp) # create an executable using the specified file
-target_compile_options(loop_omp PRIVATE ${OpenMP_CXX_FLAGS})
-target_link_libraries(loop_omp PUBLIC ${LINK_LIBS} OpenMP::OpenMP_CXX)
+if(OPENMP_FOUND)
+  add_executable(loop_omp examples/loop_omp.cpp) # create an executable using the specified file
+  target_compile_options(loop_omp PRIVATE ${OpenMP_CXX_FLAGS})
+  target_link_libraries(loop_omp PUBLIC ${LINK_LIBS} OpenMP::OpenMP_CXX)
+endif()
