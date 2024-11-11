@@ -1,5 +1,7 @@
 # Editors configs
 .vscode
+*.swp
+*.swo
 
 # Build directories
 build
