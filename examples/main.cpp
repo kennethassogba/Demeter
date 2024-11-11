@@ -1,8 +1,6 @@
-#include <iostream> // pour l'affichage et les entrées/sorties
+#include <iostream>
 
-// Fonction principale
 int main() {
-    std::cout << "Bonjour !" << std::endl; 
-    return 0;
+  std::cout << "Bonjour !" << std::endl;
+  return 0;
 }
-
