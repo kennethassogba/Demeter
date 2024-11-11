@@ -1,3 +1,8 @@
+# Generate this file
+# clang-format --style=google -dump-config > .clang-format
+# with some edits (commented values)
+# Usage
+# clang-format -i -style=file Example.[ch]pp
 ---
 Language:        Cpp
 # BasedOnStyle:  Google
