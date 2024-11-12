@@ -77,6 +77,9 @@ jobs:
     - name: Run test_omp
       run: ${{github.workspace}}/build/test_omp
 
+    - name: clang-tidy
+      run: make clang-tidy
+
     # - name: Test
     #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
