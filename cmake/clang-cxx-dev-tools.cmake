@@ -18,16 +18,16 @@ if(CLANG_FORMAT)
 endif()
 
 # Adding clang-tidy target if executable is found
-# find_program(CLANG_TIDY "clang-tidy")
-# if(CLANG_TIDY)
-#   add_custom_target(
-#     clang-tidy
-#     COMMAND /usr/bin/clang-tidy
-#     ${ALL_CXX_SOURCE_FILES}
-#     -config=''
-#     --
-#     -std=c++20
-#     ${INCLUDE_DIRECTORIES}
-#     ${LIBS_DIR}
-#     )
-# endif()
+find_program(CLANG_TIDY "clang-tidy")
+if(CLANG_TIDY)
+  add_custom_target(
+    clang-tidy
+    COMMAND /usr/bin/clang-tidy
+    ${ALL_CXX_SOURCE_FILES}
+    -config=''
+    --
+    -std=c++20
+    ${INCLUDE_DIRECTORIES}
+    -I /usr/include/eigen3/ # TODO find a general way to include
+    )
+endif()

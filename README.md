@@ -14,7 +14,7 @@ Numerically, the physics part is coded in C++ with Python as a user interface fo
 - [x] Add AddressSanitizer, ThreadSanitizer, MemorySanitizer.
 - [x] Setup Github Action.
 - [x] Improve Github Action, by fixing OpenMP not found and with recent version of compiler and Eigen.
-- [ ] Choose a code style (Google style eg) and setup a linter.
+- [x] Choose a code style (Google style eg) and setup a linter.
 - [ ] Setup directory structure.
 - [ ] Write a first real but simple code.
 - [ ] Talk about doc style (eg doc string) and the way to generate it automatically.
