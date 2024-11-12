@@ -1,7 +1,7 @@
 # Generate this file
-# clang-tidy -checks=*,-clang-analyzer-alpha.*,-llvm-include-order,-llvmlibc*,-modernize-use-trailing-return-type -dump-config examples/main.cpp -- -std=c++11 > .clang-tidy
+# clang-tidy -checks=*,-clang-analyzer-alpha.*,-llvm-include-order,-llvmlibc*,-modernize-use-trailing-return-type -dump-config examples/main.cpp -- -std=c++20 > .clang-tidy
 # Usage
-# clang-tidy (-fix) examples/main.cpp -config='' -- -std=c++11 -I/include/path
+# clang-tidy (-fix) examples/main.cpp -config='' -- -std=c++20 -I/include/path
 ---
 Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-clang-analyzer-alpha.*,-llvm-include-order,-llvmlibc*,-modernize-use-trailing-return-type'
 WarningsAsErrors: ''

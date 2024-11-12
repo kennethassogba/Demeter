@@ -31,6 +31,9 @@ cmake_print_variables(CMAKE_CXX_COMPILER_RANLIB)
 cmake_print_variables(OpenMP_CXX_FOUND OpenMP_CXX_FLAGS OpenMP_CXX_INCLUDE_DIRS)
 cmake_print_variables(OpenMP::OpenMP_CXX OpenMP_CXX_VERSION)
 
+# Including custom cmake rules
+include(cmake/clang-cxx-dev-tools.cmake) # make clang-format and make clang-tidy
+
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
 target_link_libraries(main PUBLIC ${LINK_LIBS})
