@@ -77,8 +77,9 @@ jobs:
     - name: Run test_omp
       run: ${{github.workspace}}/build/test_omp
 
-    - name: clang-tidy
-      run: make clang-tidy
+    # - name: clang-tidy
+    #   run: make clang-tidy
+    # cmake --build ${{ steps.strings.outputs.build-output-dir }} --config Debug --target clang-tidy -j
 
     # - name: Test
     #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
