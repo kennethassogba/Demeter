@@ -15,10 +15,11 @@ Numerically, the physics part is coded in C++ with Python as a user interface fo
 - [x] Setup Github Action.
 - [x] Improve Github Action, by fixing OpenMP not found and with recent version of compiler and Eigen.
 - [x] Choose a code style (Google style eg) and setup a linter.
-- [ ] Setup directory structure.
+- [ ] Setup directory structure => vector-of-bool/pitchfork.
 - [ ] Write a first real but simple code.
 - [ ] Talk about doc style (eg doc string) and the way to generate it automatically.
 - [ ] Talk about unit tests (use catch2 or gtest).
+- [ ] Peform cland-tidy in github action.
 
 ## Requirements
 
