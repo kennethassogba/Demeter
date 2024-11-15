@@ -5,15 +5,16 @@ But we choose to design a simplified interface.
 
 ## Directory structure
 
+vector-of-bool/pitchfork
+
 demeter/
 ├── src/
 │   ├── model/
 │   │   ├── cell.hpp
 │   │   ├── cell.cpp
-│   │   ├── pincell.hpp
-│   │   ├── pincell.cpp
 │   │   ├── material.hpp
 │   │   └── material.cpp
+│   ├── model.hpp
 │   └── solve/
 │       ├── solver.hpp
 │       └── solver.cpp

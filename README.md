@@ -2,31 +2,39 @@
 
 Demeter<sup>1</sup> is a modern and open source deterministic neutron transport code for reactor simulations. The code is designed to perform 3D fixe source and eigenvalue calculations by solving the multi-group neutron transport equation.
 
-The physics is coded in C++ with Python as user interface for easy and fast usage.
+The physics is coded in C++, with Python as user interface for easy and fast usage.
 
 <sub>1. DEterMinistic nEutron Transport solvER</sub>
 
 ## Roadmap
 
-- [x] Run a simple main.cpp.
 - [x] Setup Cmake (overkill for now but usefull in the future).
 - [x] Add and test Eigen.
 - [x] Add AddressSanitizer, ThreadSanitizer, MemorySanitizer.
 - [x] Setup Github Action.
 - [x] Improve Github Action, by fixing OpenMP not found and with recent version of compiler and Eigen.
+- [x] Setup directory structure => vector-of-bool/pitchfork.
 - [x] Setup clang-format with Google style.
-- [ ] Setup clang-tidy.
+- [x] Setup clang-tidy.
+- [ ] Code Material.
+- [ ] Setup pybind11.
+- [ ] Write a test for Material.
+- [ ] Code Geometry.
+  - [ ] Cell
+  - [ ] PinCell
+  - [ ] Lattice.
+- [ ] Collect source and compile.
+- [ ] Write a test for geometry.
+- [ ] Code Solver.
 - [ ] Fix how to launch clang-tidy locally and on action.
 - [ ] Setup gcc analizer.
-- [ ] Code Goemetry.
-- [ ] Code mesh.
-- [ ] Setup directory structure => vector-of-bool/pitchfork.
 - [ ] Write a first real but simple code.
 - [ ] Talk about doc style (eg doxygen) and the way to generate it automatically.
 - [ ] Talk about unit tests (use catch2 or gtest).
 - [ ] Peform cland-tidy in github action.
 - [ ] Write a Python API.
 - [ ] Enable users to test the lib with codespace and notebook.
+- [ ] GPU offload.
 
 ## Requirements
 

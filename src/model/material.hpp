@@ -2,9 +2,11 @@
 
 #include <vector>
 #include <string>
+#include <string_view>
+#include <Eigen/Core>
 
 // TODO switch to Eigen
-// TODO add optional
+// TODO add optional xs and name
 namespace Demeter {
 
 /**
