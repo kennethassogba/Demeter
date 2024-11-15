@@ -1,15 +1,56 @@
 # Source general spec
 
+A good way to get early adopters might be to be a drop-in replacement for OpenMOC or OpenMC.
+But we choose to design a simplified interface.
+
 ## Directory structure
 
-src/
-├── core/
-│   ├── foo.h
-│   ├── foo.cpp
-│   ├── foo.test.cpp
-│   ├── bar.h
-│   ├── bar.cpp
-│   └── bar.test.cpp
+demeter/
+├── src/
+│   ├── model/
+│   │   ├── cell.hpp
+│   │   ├── cell.cpp
+│   │   ├── pincell.hpp
+│   │   ├── pincell.cpp
+│   │   ├── material.hpp
+│   │   └── material.cpp
+│   └── solve/
+│       ├── solver.hpp
+│       └── solver.cpp
 └── tests/
-    ├── functional_test1/
-    └── integration_test1/
+    ├── unit/
+    ├── benchmark/
+    └── regress/
+
+## Material and Cross section
+
+- Material : describe a material with its cross-sections
+  - vec sigma_t total or transport cross-section
+  - vec sigma_a absorption cross-section
+  - mat sigma_s scattering cross-section
+  - vec sigma_f fission cross-section
+  - vec nu_sigma_f nu*fission
+  - vec chi
+  - bool fissible
+  - str name (optional)
+
+## Geometry
+
+- Cell
+- PinCell : cell with concentric annular regions
+- Lattice : set or PinCell or set of Lattice
+  - Mesh
+  - Symetry
+    - 1/2
+    - 1/8
+  - Boundary counditions
+    - Vaccum
+    - Reflexion
+
+## Usage example
+
+Na
+
+## Solvers
+
+Na
