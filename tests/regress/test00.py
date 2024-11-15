@@ -27,17 +27,11 @@ assembly = Lattice(motif, dx, dy)
 # Create core
 core = Lattice([assembly]) # => deduction des tailles
 # core.refineMesh(2)
-# core.getXMin().setBoundaryCondition(BoundaryCondition.Vacuum)
-# core.getXMax().setBoundaryCondition(BoundaryCondition.Reflection)
-
-# Maybe an intermediate geometry class that handles core or assembly
+core.getXMin().setBoundaryCondition(BoundaryCondition.Vacuum)
+core.getXMax().setBoundaryCondition(BoundaryCondition.Reflection)
 
 # Create solver
-solver = Solver(core, 4, 10)
-
-# Set boundary conditions
-# solver.setBoundaryCondition(BoundaryCondition.Vacuum, BoundarySide.Left)
-# solver.setBoundaryCondition(BoundaryCondition.Reflection, BoundarySide.Right)
+solver = Solver(core)
 
 # Solve the transport equation
 solver.solve()
