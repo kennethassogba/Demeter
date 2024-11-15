@@ -15,11 +15,13 @@ class Material {
  public:
   Material(std::vector<double>& sigma_t, std::vector<double>& sigma_s,
            std::vector<double>& sigma_a, std::vector<double>& sigma_f,
-           std::vector<double>& nu_sigma_f, std::vector<double>& chi);
+           std::vector<double>& nu_sigma_f, std::vector<double>& chi,
+           std::string_view name = "");
   // rvalue reference constructor
   Material(std::vector<double>&& sigma_t, std::vector<double>&& sigma_s,
            std::vector<double>&& sigma_a, std::vector<double>&& sigma_f,
-           std::vector<double>&& nu_sigma_f, std::vector<double>&& chi);
+           std::vector<double>&& nu_sigma_f, std::vector<double>&& chi,
+           std::string_view name = "");
   // move constructor
   Material(Material&& other);
   // copy constructor
