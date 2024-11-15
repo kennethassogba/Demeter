@@ -1,5 +1,3 @@
-// Scarabee style modelling
-
 #include <iostream>
 #include <valarray>
 #include <vector>
