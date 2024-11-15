@@ -2,7 +2,7 @@
 
 Demeter<sup>1</sup> is a modern and open source deterministic neutron transport code for reactor simulations. The code is designed to perform 3D fixe source and eigenvalue calculations by solving the multi-group neutron transport equation.
 
-Numerically, the physics part is coded in C++ with Python as a user interface for easy and fast utilisations. Cmake is used to build configurations.
+The physics is coded in C++ with Python as user interface for easy and fast usage.
 
 <sub>1. DEterMinistic nEutron Transport solvER</sub>
 
@@ -14,7 +14,10 @@ Numerically, the physics part is coded in C++ with Python as a user interface fo
 - [x] Add AddressSanitizer, ThreadSanitizer, MemorySanitizer.
 - [x] Setup Github Action.
 - [x] Improve Github Action, by fixing OpenMP not found and with recent version of compiler and Eigen.
-- [x] Choose a code style (Google style eg) and setup a linter.
+- [x] Setup clang-format with Google style.
+- [ ] Setup clang-tidy.
+- [ ] Fix how to launch clang-tidy locally and on action.
+- [ ] Setup gcc analizer.
 - [ ] Code Goemetry.
 - [ ] Code mesh.
 - [ ] Setup directory structure => vector-of-bool/pitchfork.
