@@ -8,15 +8,14 @@
 // TODO add optional xs and name
 // TODO some material maybe not need all xs, make them optional
 namespace Demeter {
+using Eigen::ArrayXd;
+using Eigen::ArrayXXd;
 
 /**
  * @brief Describes the material properties. The cross-sections (xs) are:
  * total, scatering, absorption and fission.
  */
 class Material {
-  using ArrayXd = Eigen::ArrayXd;  // TODO move to a global definition header
-  using ArrayXXd = Eigen::ArrayXXd;
-
  public:
   Material(ArrayXd& sigma_t, ArrayXXd& sigma_s, ArrayXd& sigma_a,
            ArrayXd& sigma_f, ArrayXd& nu_sigma_f, ArrayXd& chi,
