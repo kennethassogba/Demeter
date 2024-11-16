@@ -1,15 +1,16 @@
 cmake_minimum_required(VERSION 3.4...3.31) # specifying a minimum CMake version
 project(demeter) # set the project name
 
-set(CMAKE_CXX_STANDARD 14) # specifying the C++ Standard
+set(CMAKE_CXX_STANDARD 17) # specifying the C++ Standard
 set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 # add_compile_options(-Wall -Wextra -pedantic)
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -funroll-loops -funroll-all-loops -DNDEBUG")
-set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined") # -fanalizer if gcc
 
 # include_directories(include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # OpenMP
 find_package(OpenMP)
@@ -24,7 +25,7 @@ set(LINK_LIBS ${LINK_LIBS} Eigen3::Eigen)
 
 # Verbose
 include(CMakePrintHelpers)
-cmake_print_variables(PROJECT_SOURCE_DIR CMAKE_BUILD_TYPE)
+cmake_print_variables(PROJECT_SOURCE_DIR CMAKE_BUILD_TYPE CMAKE_CURRENT_SOURCE_DIR)
 cmake_print_variables(CMAKE_CXX_COMPILER CMAKE_CXX_COMPILER_ID CMAKE_CXX_COMPILER_VERSION)
 cmake_print_variables(CMAKE_CXX_FLAGS COMPILE_DEFINITIONS)
 cmake_print_variables(LINK_LIBS)
@@ -39,8 +40,6 @@ include(cmake/clang-cxx-dev-tools.cmake) # make clang-format and make clang-tidy
 add_executable(main examples/main.cpp) # create an executable using the specified file
 target_link_libraries(main PUBLIC ${LINK_LIBS})
 
-add_executable(simple examples/simple.cpp) # create an executable using the specified file
-target_link_libraries(simple PUBLIC ${LINK_LIBS})
-
-add_executable(test_omp examples/test_omp.cpp) # create an executable using the specified file
-target_link_libraries(test_omp PUBLIC ${LINK_LIBS})
+# Tests
+# enable_testing()
+# add_subdirectory(tests) # add the tests subdirectory
