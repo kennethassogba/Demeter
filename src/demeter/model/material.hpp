@@ -55,7 +55,7 @@ class Material {
  private:
   void check() const;
   size_t check(size_t group) const {
-    assert((group >= 0) and (group < num_groups_));
+    assert(group < num_groups_);
     return group;
   }
 

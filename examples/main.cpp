@@ -4,16 +4,18 @@
 #include <Eigen/Dense>
 #include "demeter/model/material.hpp"
 
-int main() {
+void CheckOpenMP() {
 #if defined(_OPENMP)
-  std::cerr << "OpenMP version " << _OPENMP << '\n';
+  unsigned num_threads = 0;
+#pragma omp parallel reduction(+ : num_threads)
+  num_threads += 1;
+  std::cerr << "OpenMP version " << _OPENMP << " number of threads "
+            << num_threads << '\n';
 #endif
+}
 
-#pragma omp parallel for
-  for (int i = 0; i < 9; ++i) {
-    std::cerr << "rank = " << omp_get_thread_num()
-              << " size = " << omp_get_num_threads() << '\n';
-  }
+int main() {
+  CheckOpenMP();
 
   using Eigen::MatrixXd;
 
