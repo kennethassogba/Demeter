@@ -26,6 +26,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
   - [ ] PinCell
   - [ ] Lattice.
 - [ ] Write a test for geometry.
+- [ ] Adds a Logger (spd, or nano or fmtlog) and std::format.
 - [ ] Code Solver.
 - [ ] Setup gcc analizer.
 - [ ] Write a first real but simple code.

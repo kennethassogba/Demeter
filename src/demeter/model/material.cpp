@@ -1,5 +1,7 @@
 #include "material.hpp"
 
+#include <iostream>
+
 namespace Demeter {
 
 /**
@@ -35,6 +37,7 @@ Material::Material(ArrayXd& sigma_t, ArrayXXd& sigma_s, ArrayXd& sigma_a,
       sigma_f_(sigma_f),
       nu_sigma_f_(nu_sigma_f),
       chi_(chi),
+      num_groups_(sigma_t_.size()),
       name_(name) {
   check();
   fissile_ = sigma_f.maxCoeff() > 0.0;
@@ -96,8 +99,14 @@ Material::Material(Material&& other)
       fissile_(other.fissile_),
       name_(other.name_) {}
 
+// TODO change assert since we also want to check in release
 void Material::check() const {
-  assert(num_groups_ > 0);
+  if (not(num_groups_ > 0)) {
+    std::string msg = "Material " + name_ + " has " +
+                      std::to_string(num_groups_) + " energy groups";
+    throw std::runtime_error(msg);
+  }
+
   auto cast = [&](long int x) { return static_cast<decltype(num_groups_)>(x); };
   for (auto size :
        {sigma_t_.size(), sigma_s_.rows(), sigma_s_.cols(), sigma_a_.size(),
