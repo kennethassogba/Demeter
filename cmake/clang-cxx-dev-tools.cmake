@@ -27,7 +27,8 @@ if(CLANG_TIDY)
     -config=''
     --
     -std=c++20
-    ${INCLUDE_DIRECTORIES}
+    -I ${CMAKE_CURRENT_SOURCE_DIR}/src
+    -I ${CMAKE_CURRENT_SOURCE_DIR}/src/demeter
     -I /usr/include/eigen3/ # TODO find a general way to include
     )
 endif()
