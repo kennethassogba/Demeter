@@ -5,23 +5,25 @@ But we choose to design a simplified interface.
 
 ## Directory structure
 
-vector-of-bool/pitchfork
+Pitchfork Layout vector-of-bool/pitchfork
 
-demeter/
-├── src/
-│   ├── model/
-│   │   ├── cell.hpp
-│   │   ├── cell.cpp
-│   │   ├── material.hpp
-│   │   └── material.cpp
-│   ├── model.hpp
-│   └── solve/
-│       ├── solver.hpp
-│       └── solver.cpp
-└── tests/
-    ├── unit/
-    ├── benchmark/
-    └── regress/
+- [x] build/: Used for storing ephemeral build results. Must be ignored in .gitignore.
+
+- [ ] src/: Main compilable source location. In the presence of include/, also contains private headers.
+
+- [ ] include/: Directory for public headers. May be present. May be omitted for projects that do not distinguish between private/public headers. May be omitted for projects that use submodules.
+
+- [x] tests/: Directory for tests.
+
+- [x] examples/: Directory for samples and examples.
+
+- [x] external/: Directory for packages/projects to be used by the project, but not edited as part of the project.
+
+- [ ] data/: Directory containing non-source code aspects of the project.
+
+- [ ] tools/: Directory containing development utilities, such as build and refactoring scripts
+
+- [ ] docs/: Directory for project documentation.
 
 ## Material and Cross section
 

@@ -8,39 +8,48 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 
 ## Roadmap
 
-- [x] Setup Cmake (overkill for now but usefull in the future).
+### Core
+
+- [x] Setup Cmake.
 - [x] Add and test Eigen.
-- [x] Add AddressSanitizer, ThreadSanitizer, MemorySanitizer.
-- [x] Setup Github Action.
-- [x] Improve Github Action, by fixing OpenMP not found and with recent version of compiler and Eigen.
-- [x] Setup directory structure => vector-of-bool/pitchfork.
-- [x] Setup clang-format with Google style.
-- [x] Setup clang-tidy.
-- [x] Code Material and test in main.
+- [x] Setup directory structure vector-of-bool/pitchfork.
+- [x] Code and test Material class.
 - [x] Collect source and compile.
-- [x] Fix how to launch clang-tidy locally and on action.
 - [ ] Setup pybind11 and write a Python API.
-- [ ] Write a python test for Material.
-- [ ] Code Geometry.
+- [ ] Write a python test for Material class.
+- [ ] Code and test Geometry class.
   - [ ] Cell
   - [ ] PinCell
   - [ ] Lattice.
-- [ ] Write a test for geometry.
-- [ ] Adds a Logger (spd, or nano or fmtlog) and std::format.
-- [ ] Code Solver.
-- [ ] Setup gcc analizer.
-- [ ] Write a first real but simple code.
-- [ ] Talk about unit tests (use catch2, docstest or gtest).
-- [ ] Peform cland-tidy in github action.
+- [ ] Test Geometry in python.
+- [ ] Code Solver class.
+- [ ] Write full benchmark in C++.
+- [ ] Write full benchmark in Python.
 - [ ] Talk about doc style (eg doxygen) and the way to generate it automatically.
 - [ ] Enable users to test the lib with codespace and notebooks.
 - [ ] GPU offload.
+
+### Clean code, testing and safety
+
+- [x] Add AddressSanitizer, ThreadSanitizer, MemorySanitizer.
+- [x] Setup Github Action.
+- [x] Improve Github Action, by fixing OpenMP not found and with recent version of compiler and Eigen.
+- [x] Setup clang-format with Google style.
+- [x] Setup clang-tidy.
+- [x] Fix how to launch clang-tidy locally and on action.
+- [ ] Add a Logger (spdlog, or nanolog or fmtlog) and std::format.
+- [ ] Use docstest unit tests.
+- [ ] Maybe switch to include/demeter, src, src/binding, test, extra directory structure
+- [ ] Add -Werror flag
+- [ ] Setup gcc analizer.
+- [ ] Generate .clagn-tidy with --warnings-as-errors=<string>
+- [ ] Peform cland-tidy in github action.
 
 ## Requirements
 
 - A C++ compiler compatible with at least version 17 of the standard, eg:
   - GCC 8 and later `apt install build-essential`,
-  - Clang 5 and later `apt install clang libomp-dev clang-tidy clang-format`.
+  - Clang 8 and later `apt install clang libomp-dev clang-tidy clang-format`.
 - CMake `apt install cmake`.
 - Eigen `apt install libeigen3-dev`.
 
