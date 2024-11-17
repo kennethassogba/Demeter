@@ -3,16 +3,16 @@
 #include <Eigen/Core>
 
 int main() {
-  using vec = Eigen::ArrayXd;
-  using mat = Eigen::ArrayXXd;
+  using Eigen::ArrayXd;
+  using Eigen::ArrayXXd;
 
-  vec sigma_t{0.222222, 0.833333};
-  vec D = 1. / (3. * sigma_t);
-  vec sigma_a{0.010120, 0.080032};
-  vec nusigma_f{0., 0.135};
-  vec sigma_f{0., 0.135};
-  vec chi{1., 0.};
-  mat sigma_s{{0.00, 0.02}, {0.00, 0.00}};
+  ArrayXd sigma_t{{0.222222, 0.833333}};
+  ArrayXd D = 1. / (3. * sigma_t);
+  ArrayXd sigma_a{{0.010120, 0.080032}};
+  ArrayXd nu_sigma_f{{0., 0.135}};
+  ArrayXd sigma_f{{0., 0.135}};
+  ArrayXd chi{{1., 0.}};
+  ArrayXXd sigma_s{{0.00, 0.02}, {0.00, 0.00}};
   // auto a1 = Material(D, Ea, Es, Ef, vEf, chi, "A1");
 
   // sigma_t = {0.222222, 0.833333};
@@ -51,11 +51,11 @@ int main() {
   //         a1, a1, a1, a4, a4, a4, 0., 0., 0.,
   //         a4, a4, a4, a4, 0., 0., 0., 0., 0.};
 
-  auto dx = {10., 20., 20., 20., 20., 20., 20., 20., 20.};
-  auto nx = {9, 17, 17, 17, 17, 17, 17, 17, 17};
+  // auto dx = {10., 20., 20., 20., 20., 20., 20., 20., 20.};
+  // auto nx = {9, 17, 17, 17, 17, 17, 17, 17, 17};
 
-  auto dy = {20., 20., 20., 20., 20., 20., 20., 20., 10.};
-  auto ny = {17, 17, 17, 17, 17, 17, 17, 17, 9};
+  // auto dy = {20., 20., 20., 20., 20., 20., 20., 20., 10.};
+  // auto ny = {17, 17, 17, 17, 17, 17, 17, 17, 9};
 
   // auto geom = DiffusionGeometry(core, dx, nx, dy, ny, 1., 0., 0., 1.);
   // auto solver = FDDiffusionDriver(geom);

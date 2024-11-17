@@ -74,7 +74,7 @@ Material::Material(ArrayXd&& sigma_t, ArrayXXd&& sigma_s, ArrayXd&& sigma_a,
       sigma_f_(std::move(sigma_f)),
       nu_sigma_f_(std::move(nu_sigma_f)),
       chi_(std::move(chi)),
-      num_groups_(sigma_t.size()),
+      num_groups_(sigma_t_.size()),
       name_(name) {
   check();
   fissile_ = sigma_f_.maxCoeff() > 0.0;
@@ -93,18 +93,17 @@ Material::Material(Material&& other)
       nu_sigma_f_(std::move(other.nu_sigma_f_)),
       chi_(std::move(other.chi_)),
       num_groups_(other.num_groups_),
-      name_(other.name_),
-      fissile_(other.fissile_) {}
+      fissile_(other.fissile_),
+      name_(other.name_) {}
 
 void Material::check() const {
   assert(num_groups_ > 0);
-  assert(sigma_t_.rows() == num_groups_);
-  assert(sigma_s_.rows() == num_groups_);
-  assert(sigma_s_.cols() == num_groups_);
-  assert(sigma_a_.size() == num_groups_);
-  assert(sigma_f_.size() == num_groups_);
-  assert(nu_sigma_f_.size() == num_groups_);
-  assert(chi_.size() == num_groups_);
+  auto cast = [&](long int x) { return static_cast<decltype(num_groups_)>(x); };
+  for (auto size :
+       {sigma_t_.size(), sigma_s_.rows(), sigma_s_.cols(), sigma_a_.size(),
+        sigma_f_.size(), nu_sigma_f_.size(), chi_.size()}) {
+    assert(cast(size) == num_groups_);
+  }
 }
 
 }  // namespace Demeter

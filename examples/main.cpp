@@ -37,8 +37,8 @@ int main() {
   ArrayXd chi{{1., 0.}};
   ArrayXXd sigma_s{{0.00, 0.02}, {0.00, 0.00}};
 
-  // Demeter::Material uo2(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi,
-  //                       "UO2");
+  Demeter::Material uo2(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi,
+                        "UO2");
 
   return 0;
 }

@@ -59,12 +59,6 @@ class Material {
   }
 
  private:
-  /* A name for the Material */
-  std::string name_;
-
-  /* The number of energy groups */
-  size_t num_groups_;
-
   /* The total xs for each energy group */
   ArrayXd sigma_t_;
 
@@ -83,7 +77,13 @@ class Material {
   /* The chi values for each energy group */
   ArrayXd chi_;
 
+  /* The number of energy groups */
+  size_t num_groups_;
+
   /* The Material is fissile if it contains a non-zero fission xs */
   bool fissile_;
+
+  /* A name for the Material */
+  std::string name_;
 };
 }  // namespace Demeter

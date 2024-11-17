@@ -4,13 +4,11 @@ project(demeter) # set the project name
 set(CMAKE_CXX_STANDARD 17) # specifying the C++ Standard
 set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
-# add_compile_options(-Wall -Wextra -pedantic)
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -funroll-loops -funroll-all-loops -DNDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined") # -fanalizer if gcc
 
-# include_directories(include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+include_directories(src)
 
 # OpenMP
 find_package(OpenMP)
@@ -35,6 +33,12 @@ cmake_print_variables(OpenMP::OpenMP_CXX OpenMP_CXX_VERSION)
 
 # Including custom cmake rules
 include(cmake/clang-cxx-dev-tools.cmake) # make clang-format and make clang-tidy
+
+# Compile Demeter sources as a library
+file(GLOB_RECURSE DEM_SOURCES src/demeter/*.cpp)
+add_library(demeter ${DEM_SOURCES})
+target_link_libraries(demeter PUBLIC ${LINK_LIBS})
+set(LINK_LIBS ${LINK_LIBS} demeter)
 
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
