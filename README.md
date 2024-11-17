@@ -16,24 +16,23 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup directory structure => vector-of-bool/pitchfork.
 - [x] Setup clang-format with Google style.
 - [x] Setup clang-tidy.
-- [ ] Code Material.
-- [ ] Setup pybind11.
-- [ ] Write a test for Material.
+- [x] Code Material and test in main.
+- [x] Collect source and compile.
+- [x] Fix how to launch clang-tidy locally and on action.
+- [ ] Setup pybind11 and write a Python API.
+- [ ] Write a python test for Material.
 - [ ] Code Geometry.
   - [ ] Cell
   - [ ] PinCell
   - [ ] Lattice.
-- [ ] Collect source and compile.
 - [ ] Write a test for geometry.
 - [ ] Code Solver.
-- [ ] Fix how to launch clang-tidy locally and on action.
 - [ ] Setup gcc analizer.
 - [ ] Write a first real but simple code.
-- [ ] Talk about doc style (eg doxygen) and the way to generate it automatically.
-- [ ] Talk about unit tests (use catch2 or gtest).
+- [ ] Talk about unit tests (use catch2, docstest or gtest).
 - [ ] Peform cland-tidy in github action.
-- [ ] Write a Python API.
-- [ ] Enable users to test the lib with codespace and notebook.
+- [ ] Talk about doc style (eg doxygen) and the way to generate it automatically.
+- [ ] Enable users to test the lib with codespace and notebooks.
 - [ ] GPU offload.
 
 ## Requirements
