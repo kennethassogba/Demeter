@@ -56,16 +56,10 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 ## Build and Run
 
 ```bash
+git clone --recursive https://github.com/kennethassogba/Demeter
 mkdir build && cd build
 cmake ..
 make -j
-```
-
-or
-
-```bash
-cmake -B build
-cmake --build build
 ```
 
 Then try
