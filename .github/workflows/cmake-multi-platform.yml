@@ -36,6 +36,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+          submodules: true
 
     - name: Install Eigen3
       uses: kupns-aka-kupa/setup-eigen3@v1
@@ -51,8 +53,12 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
-    - name: Install libomp-dev
+    - name: Install libomp-dev clang-tidy clang-format
       run: sudo apt install -y clang-tidy clang-format libomp-dev
+
+    - name: Install NumPy scipy
+      run: |
+        python -m pip install numpy scipy
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
