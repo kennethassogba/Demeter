@@ -50,8 +50,9 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - A C++ compiler compatible with at least version 17 of the standard, eg:
   - GCC 8 and later `apt install build-essential`,
   - Clang 8 and later `apt install clang libomp-dev clang-tidy clang-format`.
-- CMake `apt install cmake`.
-- Eigen `apt install libeigen3-dev`.
+- CMake 3.4 and newer `apt install cmake`.
+- Eigen 3.3 and newer `apt install libeigen3-dev`.
+- Python 3.8 and newer `apt install libpython3-dev`
 
 ## Build and Run
 
