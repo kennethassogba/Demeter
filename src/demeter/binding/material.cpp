@@ -1,5 +1,14 @@
 #include <nanobind/nanobind.h>
 
-int add(int a, int b) { return a + b; }
+namespace nb = nanobind;
+using namespace nb::literals;
 
-NB_MODULE(my_ext, m) { m.def("add", &add); }
+int add(int a, int b = 1) { return a + b; }
+
+NB_MODULE(demeter_ext, m) {
+  m.doc() = "A simple example python extension";
+  m.def(
+      "add", &add, "a"_a, "b"_a = 1,
+      "This function adds two numbers and increments if only one is provided.");
+  m.attr("the_answer") = 42;
+}
