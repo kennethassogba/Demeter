@@ -6,7 +6,10 @@ set(CMAKE_CXX_STANDARD 17) # specifying the C++ Standard
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -funroll-loops -funroll-all-loops -DNDEBUG")
-set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined") # -fanalizer if gcc
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined")
+# -fsanitize=thread is incompatible with -fsanitize=address
+# -fsanitize=memory also
+# -fanalizer is also available for gcc
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
