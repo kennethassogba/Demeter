@@ -30,7 +30,13 @@ class Material {
   Material(Material&& other);
 
   // copy constructor
-  Material(const Material& other);
+  Material(const Material& other) { *this = other; }
+
+  // copy assignment operator
+  Material& operator=(Material other) {
+    swap(*this, other);
+    return *this;
+  }
 
   auto name() const { return name_; }
   auto NumEnergyGroups() const { return num_groups_; }
@@ -50,6 +56,19 @@ class Material {
   auto NuSigmaF(size_t group) const { return nu_sigma_f_(check(group)); };
   auto Chi(size_t group) const { return chi_(check(group)); };
   bool fissile() const { return fissile_; }
+
+  friend void swap(Material& a, Material& b) {
+    using std::swap;
+    swap(a.sigma_t_, b.sigma_t_);
+    swap(a.sigma_s_, b.sigma_s_);
+    swap(a.sigma_a_, b.sigma_a_);
+    swap(a.sigma_f_, b.sigma_f_);
+    swap(a.nu_sigma_f_, b.nu_sigma_f_);
+    swap(a.chi_, b.chi_);
+    swap(a.num_groups_, b.num_groups_);
+    swap(a.fissile_, b.fissile_);
+    swap(a.name_, b.name_);
+  }
 
  private:
   void check() const;

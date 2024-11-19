@@ -1,14 +1,54 @@
+#include "demeter/model/material.hpp"
+
 #include <nanobind/nanobind.h>
+#include <nanobind/eigen/dense.h>
+#include <nanobind/stl/string_view.h>
 
 namespace nb = nanobind;
 using namespace nb::literals;
 
-int add(int a, int b = 1) { return a + b; }
+using Eigen::ArrayXd;
+using Eigen::ArrayXXd;
 
 NB_MODULE(demeter_ext, m) {
-  m.doc() = "A simple example python extension";
-  m.def(
-      "add", &add, "a"_a, "b"_a = 1,
-      "This function adds two numbers and increments if only one is provided.");
-  m.attr("the_answer") = 42;
+  m.doc() =
+      "A modern deterministic neutron transport solver for reactor simulations";
+
+  // Material class bindings
+  nb::class_<Demeter::Material>(m, "Material")
+      .def_static("help",
+                  []() {
+                    return "Material(sigma_t, sigma_s, sigma_a, sigma_f, "
+                           "nu_sigma_f, chi, name)\n"
+                           "    A class representing a material with its "
+                           "cross-sections.";
+                  })
+      .def(nb::init<ArrayXd&, ArrayXXd&, ArrayXd&, ArrayXd&, ArrayXd&, ArrayXd&,
+                    std::string_view>(),
+           "sigma_t"_a, "sigma_s"_a, "sigma_a"_a, "sigma_f"_a, "nu_sigma_f"_a,
+           "chi"_a, "name"_a = "",
+           "Create a Material object with the given "
+           "cross-sections.");
+  // doublon
+  // .def(nb::init<ArrayXd&&, ArrayXXd&&, ArrayXd&&, ArrayXd&&, ArrayXd&&,
+  //               ArrayXd&&, std::string_view>(),
+  //      "sigma_t"_a, "sigma_s"_a, "sigma_a"_a, "sigma_f"_a, "nu_sigma_f"_a,
+  //      "chi"_a, "name"_a = "");
+  // .def_ro("name", &Demeter::Material::name, "The name of the material.")
+  // .def_ro("num_energy_groups", &Demeter::Material::NumEnergyGroups);
+  // .def_prop_ro("sigma_t", &Demeter::Material::SigmaT)
+  // .def_prop_ro("sigma_s", &Demeter::Material::SigmaS)
+  // .def_prop_ro("sigma_a", &Demeter::Material::SigmaA)
+  // .def_prop_ro("sigma_f", &Demeter::Material::SigmaF)
+  // .def_prop_ro("nu_sigma_f", &Demeter::Material::NuSigmaF)
+  // .def_prop_ro("chi", &Demeter::Material::Chi)
+  // .def("sigma_t", &Demeter::Material::SigmaT, "group"_a)
+  // .def("sigma_s", &Demeter::Material::SigmaS, "from"_a, "to"_a)
+  // .def("sigma_a", &Demeter::Material::SigmaA, "group"_a)
+  // .def("sigma_f", &Demeter::Material::SigmaF, "group"_a)
+  // .def("nu_sigma_f", &Demeter::Material::NuSigmaF, "group"_a)
+  // .def("chi", &Demeter::Material::Chi, "group"_a)
+  // .def("fissile", &Demeter::Material::fissile);
+
+  // ...
 }

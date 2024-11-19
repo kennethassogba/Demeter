@@ -100,7 +100,7 @@ Material::Material(Material&& other)
       name_(other.name_) {}
 
 // TODO change assert since we also want to check in release
-void Material::check() const {
+void Material::check() const {  // TODO use fmt and a logger
   if (not(num_groups_ > 0)) {
     std::string msg = "Material " + name_ + " has " +
                       std::to_string(num_groups_) + " energy groups";
@@ -111,7 +111,19 @@ void Material::check() const {
   for (auto size :
        {sigma_t_.size(), sigma_s_.rows(), sigma_s_.cols(), sigma_a_.size(),
         sigma_f_.size(), nu_sigma_f_.size(), chi_.size()}) {
-    assert(cast(size) == num_groups_);
+    if (cast(size) != num_groups_) {
+      std::string msg =
+          "Material " + name_ + " has " + std::to_string(num_groups_) +
+          " energy groups but " +
+          "sigma_t.size()=" + std::to_string(sigma_t_.size()) +
+          ", sigma_s.rows()=" + std::to_string(sigma_s_.rows()) +
+          ", sigma_s.cols()=" + std::to_string(sigma_s_.cols()) +
+          ", sigma_a.size()=" + std::to_string(sigma_a_.size()) +
+          ", sigma_f.size()=" + std::to_string(sigma_f_.size()) +
+          ", nu_sigma_f.size()=" + std::to_string(nu_sigma_f_.size()) +
+          ", chi.size()=" + std::to_string(chi_.size());
+      throw std::runtime_error(msg);
+    }
   }
 }
 
