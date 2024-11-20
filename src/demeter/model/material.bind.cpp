@@ -1,8 +1,11 @@
 #include "demeter/model/material.hpp"
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
 #include <nanobind/nanobind.h>
 #include <nanobind/eigen/dense.h>
 #include <nanobind/stl/string_view.h>
+#pragma GCC diagnostic pop
 
 namespace nb = nanobind;
 using namespace nb::literals;

@@ -5,11 +5,13 @@ set(CMAKE_CXX_STANDARD 17) # specifying the C++ Standard
 # set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -pedantic")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -funroll-loops -funroll-all-loops -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -fsanitize=address,undefined")
 # -fsanitize=thread is incompatible with -fsanitize=address
 # -fsanitize=memory also
 # -fanalizer is also available for gcc
+# -funroll-loops Premature optimization is the root of all evil
+# -funroll-all-loops is not supported by Clang
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
@@ -72,7 +74,7 @@ set(LINK_LIBS ${LINK_LIBS} demeter)
 # Compile extension module with size optimization and add demeter library
 nanobind_add_module(demeter_ext
                     NB_DOMAIN demeter
-                    src/demeter/binding/material.cpp)
+                    src/demeter/model/material.bind.cpp)
 target_link_libraries(demeter_ext PRIVATE demeter)
 
 # Executables
