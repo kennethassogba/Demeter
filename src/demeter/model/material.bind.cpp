@@ -14,19 +14,17 @@ using Eigen::ArrayXd;
 using Eigen::ArrayXXd;
 
 NB_MODULE(demeter_ext, m) {
-  m.doc() =
-      "A modern deterministic neutron transport solver for reactor simulations";
+  m.doc() = "A deterministic neutron transport solver for reactor simulations";
 
   // Material class bindings
+  // clang-format off
   nb::class_<Demeter::Material>(m, "Material")
-      .def_static("help",
-                  []() {
-                    return "Material(sigma_t, sigma_s, sigma_a, sigma_f, "
-                           "nu_sigma_f, chi, name)\n"
-                           "    A class representing a material with its "
-                           "cross-sections.";
-                  })
-      .def(nb::init<ArrayXd&, ArrayXXd&, ArrayXd&, ArrayXd&, ArrayXd&, ArrayXd&,
+      .def(nb::init<ArrayXd&, /* sigma_t */
+                    ArrayXXd&, /* sigma_s */
+                    ArrayXd&, /* sigma_a */
+                    ArrayXd&, /* sigma_f */
+                    ArrayXd&, /* nu_sigma_f */
+                    ArrayXd&, /* chi */
                     std::string_view>(),
            "sigma_t"_a, "sigma_s"_a, "sigma_a"_a, "sigma_f"_a, "nu_sigma_f"_a,
            "chi"_a, "name"_a = "",
@@ -53,5 +51,5 @@ NB_MODULE(demeter_ext, m) {
   // .def("chi", &Demeter::Material::Chi, "group"_a)
   // .def("fissile", &Demeter::Material::fissile);
 
-  // ...
+  // clang-format on
 }

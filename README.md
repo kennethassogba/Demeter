@@ -15,7 +15,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup directory structure vector-of-bool/pitchfork.
 - [x] Code and test Material class.
 - [x] Collect source and compile.
-- [ ] Setup pybind11 and write a Python API.
+- [ ] Setup nanobind and write Python bindings for Material.
 - [ ] Write a python test for Material class.
 - [ ] Code and test Geometry class.
   - [ ] Cell

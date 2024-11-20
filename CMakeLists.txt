@@ -63,7 +63,7 @@ include(cmake/clang-cxx-dev-tools.cmake) # make clang-format and make clang-tidy
 # Compile Demeter sources as a library
 file(GLOB_RECURSE DEM_SOURCES src/demeter/*.cpp)
 add_library(demeter ${DEM_SOURCES})
-target_compile_options(demeter PRIVATE -Wall -Wextra -pedantic)
+target_compile_options(demeter PRIVATE -Wall -Wextra -Wconversion -pedantic)
 target_link_libraries(demeter PUBLIC ${LINK_LIBS})
 set_target_properties(demeter PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
@@ -80,7 +80,7 @@ target_link_libraries(demeter_ext PRIVATE demeter)
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
 target_link_libraries(main PRIVATE ${LINK_LIBS})
-target_compile_options(main PRIVATE -Wall -Wextra -pedantic)
+target_compile_options(main PRIVATE -Wall -Wextra -Wconversion -pedantic)
 
 # Tests
 # enable_testing()

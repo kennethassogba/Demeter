@@ -78,22 +78,22 @@ class Material {
   }
 
  private:
-  /* The total xs for each energy group */
+  /* Total xs for each energy group */
   ArrayXd sigma_t_;
 
   /* A 2D array of the scattering cross-section matrix from/into each group */
   ArrayXXd sigma_s_;
 
-  /* The absorption xs for each energy group */
+  /* Absorption xs for each energy group */
   ArrayXd sigma_a_;
 
-  /* The fission xs for each energy group */
+  /* Fission xs for each energy group */
   ArrayXd sigma_f_;
 
-  /* The fission xs multiplied by nu for each energy group */
+  /* Fission xs multiplied by nu for each energy group */
   ArrayXd nu_sigma_f_;
 
-  /* The chi values for each energy group */
+  /* Fission spectrum for each energy group */
   ArrayXd chi_;
 
   /* The number of energy groups */
