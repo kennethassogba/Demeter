@@ -29,5 +29,7 @@ nanobind_test.egg-info
 _skbuild
 /dist
 __pycache__
+.cache
 *.pyd
 *.egg-info
+pyenv

@@ -88,7 +88,7 @@ target_compile_options(main PRIVATE -Wall -Wextra -Wconversion -pedantic)
 
 # Install directive for scikit-build-core
 if (SKBUILD)
-install(TARGETS _demeter LIBRARY DESTINATION demeter)
+  install(TARGETS _demeter LIBRARY DESTINATION demeterpy)
 endif()
 
 # Tests
