@@ -23,3 +23,11 @@ debug
 # Compiled Static libraries
 *.a
 *.lib
+
+# Python binding
+nanobind_test.egg-info
+_skbuild
+/dist
+__pycache__
+*.pyd
+*.egg-info

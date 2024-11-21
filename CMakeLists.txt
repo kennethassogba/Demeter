@@ -38,7 +38,9 @@ else()
   set(DEV_MODULE Development.Module)
 endif()
 
-find_package(Python 3.8 COMPONENTS Interpreter ${DEV_MODULE} REQUIRED)
+find_package(Python 3.8
+  REQUIRED COMPONENTS Interpreter ${DEV_MODULE}
+  OPTIONAL_COMPONENTS Development.SABIModule)
 include_directories(${Python_INCLUDE_DIRS})
 
 # nanobind
@@ -72,15 +74,22 @@ set(LINK_LIBS ${LINK_LIBS} demeter)
 
 # nanobind extension
 # Compile extension module with size optimization and add demeter library
-nanobind_add_module(demeter_ext
+nanobind_add_module(_demeter # Name of the extension
+                    STABLE_ABI  # Target the stable ABI for Python 3.12+
                     NB_DOMAIN demeter
+                    # Extension source code
                     src/demeter/model/material.bind.cpp)
-target_link_libraries(demeter_ext PRIVATE demeter)
+target_link_libraries(_demeter PRIVATE demeter)
 
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
 target_link_libraries(main PRIVATE ${LINK_LIBS})
 target_compile_options(main PRIVATE -Wall -Wextra -Wconversion -pedantic)
+
+# Install directive for scikit-build-core
+if (SKBUILD)
+install(TARGETS _demeter LIBRARY DESTINATION demeter)
+endif()
 
 # Tests
 # enable_testing()

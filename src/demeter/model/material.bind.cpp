@@ -13,7 +13,7 @@ using namespace nb::literals;
 using Eigen::ArrayXd;
 using Eigen::ArrayXXd;
 
-NB_MODULE(demeter_ext, m) {
+NB_MODULE(_demeter, m) {
   m.doc() = "A deterministic neutron transport solver for reactor simulations";
 
   // Material class bindings
