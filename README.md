@@ -15,7 +15,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup directory structure vector-of-bool/pitchfork.
 - [x] Code and test Material class.
 - [x] Collect source and compile.
-- [ ] Setup nanobind and write Python bindings for Material.
+- [x] Setup nanobind and write Python bindings for Material.
 - [ ] Write a python test for Material class.
 - [ ] Code and test Geometry class.
   - [ ] Cell
@@ -53,6 +53,23 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - CMake 3.4 and newer `apt install cmake`.
 - Eigen 3.3 and newer `apt install libeigen3-dev`.
 - Python 3.8 and newer `apt install libpython3-dev`
+
+## Build Python package
+
+```bash
+cd <project-directory>
+python -m venv pyenv
+source pyenv/bin/activate
+pip install numpy matplotlib
+pip install .
+```
+
+Following this, you should be able to  access the extension
+
+```bash
+>>> from demeter import *
+>>> help(Material)
+```
 
 ## Build and Run
 

@@ -1,4 +1,4 @@
-from demeterpy import *
+from demeter import *
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -13,6 +13,7 @@ sigma_f = np.array([0.01, 0.02, 0.03]),
 sigma_a = np.array([0.001, 0.002, 0.003])
 h20 = Material(sigma_t, sigma_f, sigma_a, name= 'H20')
 
+"""
 # Create pin cells
 uO2_cell = PinCell(0.5, uO2)
 h2O_cell = PinCell(0.5, h20)
@@ -69,3 +70,4 @@ ax.set_ylabel('Pin Cell Index')
 ax.set_title('Flux Distribution')
 
 plt.show()
+"""
