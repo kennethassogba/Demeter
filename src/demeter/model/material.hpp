@@ -5,6 +5,8 @@
 #include <string_view>
 #include <Eigen/Core>
 
+#define PRINTER(x) #x << " = " << x
+
 // TODO add optional xs and name
 // TODO some material maybe not need all xs, make them optional
 namespace Demeter {
@@ -36,6 +38,12 @@ class Material {
   Material& operator=(Material other) {
     swap(*this, other);
     return *this;
+  }
+
+  std::string print() const;
+
+  friend std::ostream& operator<<(std::ostream& os, const Material& m) {
+    return os << m.print();
   }
 
   auto name() const { return name_; }

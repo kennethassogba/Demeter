@@ -40,5 +40,7 @@ int main() {
   Demeter::Material uo2(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi,
                         "UO2");
 
+  std::cout << uo2 << std::endl;
+
   return 0;
 }

@@ -99,6 +99,13 @@ Material::Material(Material&& other)
       fissile_(other.fissile_),
       name_(other.name_) {}
 
+std::string Material::print() const {
+  std::ostringstream ss;
+  ss << PRINTER(name_) << "; " << PRINTER(num_groups_) << "; "
+     << "fissile_" << (fissile_ ? "True" : "False") << '\n';
+  return ss.str();
+}
+
 // TODO change assert since we also want to check in release
 void Material::check() const {  // TODO use fmt and a logger
   if (not(num_groups_ > 0)) {
