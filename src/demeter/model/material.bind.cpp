@@ -16,25 +16,20 @@ using Eigen::ArrayXXd;
 NB_MODULE(_demeter, m) {
   m.doc() = "A deterministic neutron transport solver for reactor simulations";
 
-  // Material class bindings
   // clang-format off
+  // Material class bindings
   nb::class_<Demeter::Material>(m, "Material")
-      .def(nb::init<ArrayXd&, /* sigma_t */
+      .def(nb::init<ArrayXd&,  /* sigma_t */
                     ArrayXXd&, /* sigma_s */
-                    ArrayXd&, /* sigma_a */
-                    ArrayXd&, /* sigma_f */
-                    ArrayXd&, /* nu_sigma_f */
-                    ArrayXd&, /* chi */
+                    ArrayXd&,  /* sigma_a */
+                    ArrayXd&,  /* sigma_f */
+                    ArrayXd&,  /* nu_sigma_f */
+                    ArrayXd&,  /* chi */
                     std::string_view>(),
-           "sigma_t"_a, "sigma_s"_a, "sigma_a"_a, "sigma_f"_a, "nu_sigma_f"_a,
-           "chi"_a, "name"_a = "",
-           "Create a Material object with the given "
-           "cross-sections.");
-  // doublon
-  // .def(nb::init<ArrayXd&&, ArrayXXd&&, ArrayXd&&, ArrayXd&&, ArrayXd&&,
-  //               ArrayXd&&, std::string_view>(),
-  //      "sigma_t"_a, "sigma_s"_a, "sigma_a"_a, "sigma_f"_a, "nu_sigma_f"_a,
-  //      "chi"_a, "name"_a = "");
+           "sigma_t"_a, "sigma_s"_a, "sigma_a"_a,
+           "sigma_f"_a, "nu_sigma_f"_a, "chi"_a,
+           "name"_a = "",
+           "Create a Material object with the given cross-sections.");
   // .def_ro("name", &Demeter::Material::name, "The name of the material.")
   // .def_ro("num_energy_groups", &Demeter::Material::NumEnergyGroups);
   // .def_prop_ro("sigma_t", &Demeter::Material::SigmaT)

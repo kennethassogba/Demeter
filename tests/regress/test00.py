@@ -2,8 +2,6 @@ from demeter import *
 import numpy as np
 import matplotlib.pyplot as plt
 
-# "sigma_t"_a, "sigma_s"_a, "sigma_a"_a, "sigma_f"_a, "nu_sigma_f"_a,
-          #  "chi"_a, "name"_a
 # Create materials
 sigma_t = np.array([0.222222, 0.833333])
 sigma_s = np.array([[0.00, 0.02],
@@ -13,7 +11,7 @@ sigma_f = np.array([0., 0.135])
 nu_sigma_f = np.array([0., 0.135])
 chi = np.array([1., 0.])
 
-uO2 = Material(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi, name= 'uO2')
+uO2 = Material(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi, name= 'uO2') # type: ignore
 
 """
 sigma_t = np.array([0.1, 0.2, 0.3])
