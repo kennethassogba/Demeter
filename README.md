@@ -12,11 +12,11 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 
 - [x] Setup Cmake.
 - [x] Add and test Eigen.
-- [x] Setup directory structure vector-of-bool/pitchfork.
+- [x] Setup directory structure.
 - [x] Code and test Material class.
 - [x] Collect source and compile.
 - [x] Setup nanobind and write Python bindings for Material.
-- [ ] Write a python test for Material class.
+- [x] Write a python test for Material class.
 - [ ] Code and test Geometry class.
   - [ ] Cell
   - [ ] PinCell
@@ -38,7 +38,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup clang-tidy.
 - [x] Fix how to launch clang-tidy locally and on action.
 - [ ] Add a Logger (spdlog, or nanolog or fmtlog) and std::format.
-- [ ] Use docstest unit tests.
+- [ ] Use doctest for unit tests in c++ and python.
 - [ ] Maybe switch to include/demeter, src, src/binding, test, extra directory structure
 - [ ] Add -Werror flag
 - [ ] Setup gcc analizer.

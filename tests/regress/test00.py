@@ -2,18 +2,26 @@ from demeter import *
 import numpy as np
 import matplotlib.pyplot as plt
 
+# "sigma_t"_a, "sigma_s"_a, "sigma_a"_a, "sigma_f"_a, "nu_sigma_f"_a,
+          #  "chi"_a, "name"_a
 # Create materials
-sigma_t = np.array([0.1, 0.2, 0.3])
-sigma_f = np.array([0.01, 0.02, 0.03]),
-sigma_a = np.array([0.001, 0.002, 0.003])
-uO2 = Material(sigma_t, sigma_f, sigma_a, name= 'uO2')
+sigma_t = np.array([0.222222, 0.833333])
+sigma_s = np.array([[0.00, 0.02],
+               [0.00, 0.00]])
+sigma_a = np.array([0.010120, 0.080032])
+sigma_f = np.array([0., 0.135])
+nu_sigma_f = np.array([0., 0.135])
+chi = np.array([1., 0.])
 
+uO2 = Material(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi, name= 'uO2')
+
+"""
 sigma_t = np.array([0.1, 0.2, 0.3])
 sigma_f = np.array([0.01, 0.02, 0.03]),
 sigma_a = np.array([0.001, 0.002, 0.003])
 h20 = Material(sigma_t, sigma_f, sigma_a, name= 'H20')
 
-"""
+
 # Create pin cells
 uO2_cell = PinCell(0.5, uO2)
 h2O_cell = PinCell(0.5, h20)
