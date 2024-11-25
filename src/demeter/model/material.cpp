@@ -101,27 +101,28 @@ Material::Material(Material&& other)
 
 std::string Material::print() const {
   std::ostringstream ss;
-  ss << PRINTER(name_) << "; " << PRINTER(num_groups_) << "; "
-     << "fissile_" << (fissile_ ? "True" : "False") << '\n';
+  ss << "Material " << name_ + " has " << num_groups_
+     << " energy groups and is " << (fissile_ ? "fissile" : "not fissile");
   return ss.str();
 }
 
 // TODO change assert since we also want to check in release
+// TODO some xs maybe zero
 void Material::check() const {  // TODO use fmt and a logger
   if (not(num_groups_ > 0)) {
-    std::string msg = "Material " + name_ + " has " +
-                      std::to_string(num_groups_) + " energy groups";
-    throw std::runtime_error(msg);
+    throw std::runtime_error(print());
   }
 
   auto cast = [&](long int x) { return static_cast<decltype(num_groups_)>(x); };
-  for (auto size :
-       {sigma_t_.size(), sigma_s_.rows(), sigma_s_.cols(), sigma_a_.size(),
-        sigma_f_.size(), nu_sigma_f_.size(), chi_.size()}) {
-    if (cast(size) != num_groups_) {
+
+  auto dims = {sigma_t_.size(), sigma_s_.rows(), sigma_s_.cols(),
+               sigma_a_.size(), sigma_f_.size(), nu_sigma_f_.size(),
+               chi_.size()};
+
+  for (auto d : dims) {
+    if (cast(d) != num_groups_) {
       std::string msg =
-          "Material " + name_ + " has " + std::to_string(num_groups_) +
-          " energy groups but " +
+          print() + ", but cross-sections have different sizes " +
           "sigma_t.size()=" + std::to_string(sigma_t_.size()) +
           ", sigma_s.rows()=" + std::to_string(sigma_s_.rows()) +
           ", sigma_s.cols()=" + std::to_string(sigma_s_.cols()) +

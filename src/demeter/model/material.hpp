@@ -5,13 +5,11 @@
 #include <string_view>
 #include <Eigen/Core>
 
-#define PRINTER(x) #x << " = " << x
+#include "demeter/common.hpp"
 
 // TODO add optional xs and name
 // TODO some material maybe not need all xs, make them optional
 namespace Demeter {
-using Eigen::ArrayXd;
-using Eigen::ArrayXXd;
 
 /**
  * @brief Describes the material properties. The cross-sections (xs) are:

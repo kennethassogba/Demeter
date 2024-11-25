@@ -18,8 +18,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup nanobind and write Python bindings for Material.
 - [x] Write a python test for Material class.
 - [ ] Code and test Geometry class.
-  - [ ] Cell
-  - [ ] PinCell
+  - [x] Cell
   - [ ] Lattice.
 - [ ] Test Geometry in python.
 - [ ] Code Solver class.
