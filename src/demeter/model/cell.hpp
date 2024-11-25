@@ -27,9 +27,9 @@ class Cell {
     check();
   }
 
-  std::string print() const;
+  std::string print(bool full = false) const;
   friend std::ostream& operator<<(std::ostream& os, const Cell& c) {
-    return os << c.print();
+    return os << c.print(true);
   }
 
  private:

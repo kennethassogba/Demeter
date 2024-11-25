@@ -23,5 +23,12 @@ int main() {
   Cell uo2_cell(1.0, uo2, "UO2");
   std::cout << uo2_cell << std::endl;
 
+  // Lattice assm00{{uo2_cell, uo2_cell}};
+  // Lattice assm01{{uo2_cell, uo2_cell}};
+  // Lattice assm10{{uo2_cell, uo2_cell}};
+  // Lattice assm11{{uo2_cell, uo2_cell}};
+
+  // Lattice core{{assm00, assm01, assm10, assm11}};
+
   return 0;
 }

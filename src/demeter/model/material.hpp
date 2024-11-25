@@ -46,6 +46,8 @@ class Material {
 
   auto name() const { return name_; }
   auto NumEnergyGroups() const { return num_groups_; }
+  bool fissile() const { return fissile_; }
+
   const auto& SigmaT() const { return sigma_t_; }
   auto MaxSigmaT() const { return sigma_t_.maxCoeff(); };
   const auto& SigmaS() const { return sigma_s_; }
@@ -53,15 +55,15 @@ class Material {
   const auto& SigmaF() const { return sigma_f_; }
   const auto& NuSigmaF() const { return nu_sigma_f_; }
   const auto& Chi() const { return chi_; }
+
   auto SigmaT(Index group) const { return sigma_t_(check(group)); }
-  auto SigmaS(Index from, Index to) const {
-    return sigma_s_(check(from), check(to));
-  };
   auto SigmaA(Index group) const { return sigma_a_(check(group)); }
   auto SigmaF(Index group) const { return sigma_f_(check(group)); };
   auto NuSigmaF(Index group) const { return nu_sigma_f_(check(group)); };
   auto Chi(Index group) const { return chi_(check(group)); };
-  bool fissile() const { return fissile_; }
+  auto SigmaS(Index from, Index to) const {
+    return sigma_s_(check(from), check(to));
+  };
 
   friend void swap(Material& a, Material& b) {
     using std::swap;

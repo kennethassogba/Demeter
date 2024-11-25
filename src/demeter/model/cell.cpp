@@ -6,13 +6,12 @@ void Cell::check() const {
   assert(materials_.size() == radii_.size() + 1);
 }
 
-std::string Cell::print() const {
+std::string Cell::print(bool full) const {
   std::ostringstream ss;
   ss << "Cell " << name_ << " has " << radii_.size() << " rings and "
      << materials_.size() << " materials:\n";
-  for (const auto& m : materials_) {
-    ss << "  * " << m.get().print();
-  }
+  if (full)
+    for (const auto& m : materials_) ss << "  * " << m.get().print();
   return ss.str();
 }
 }  // namespace Demeter
