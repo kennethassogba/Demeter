@@ -20,7 +20,7 @@ int main() {
   Material uo2(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi, "UO2");
   std::cout << uo2 << std::endl;
 
-  Cell uo2_cell(1.0, &uo2, "UO2");
+  Cell uo2_cell(1.0, uo2, "UO2");
   std::cout << uo2_cell << std::endl;
 
   return 0;

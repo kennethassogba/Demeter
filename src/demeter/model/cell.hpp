@@ -4,6 +4,8 @@
 #include <string>
 #include <string_view>
 #include <memory>
+#include <functional>
+
 #include <Eigen/Core>
 
 #include "demeter/common.hpp"
@@ -13,13 +15,14 @@ namespace Demeter {
 
 class Cell {
  public:
-  Cell(double side, Material* material, std::string_view name = "")
+  Cell(double side, Material& material, std::string_view name = "")
       : side_(side), name_(name) {
     materials_.push_back(material);
   }
 
   Cell(double side, std::vector<double>& radii,
-       std::vector<Material*>& materials, std::string_view name = "")
+       std::vector<std::reference_wrapper<Material>>& materials,
+       std::string_view name = "")
       : side_(side), radii_(radii), materials_(materials), name_(name) {
     check();
   }
@@ -40,7 +43,7 @@ class Cell {
 
   // size_t num_sectors_; //TODO
 
-  std::vector<Material*> materials_;
+  std::vector<std::reference_wrapper<Material>> materials_;
 
   /* A name for the Cell */
   std::string name_;

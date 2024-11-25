@@ -9,7 +9,10 @@ void Cell::check() const {
 std::string Cell::print() const {
   std::ostringstream ss;
   ss << "Cell " << name_ << " has " << radii_.size() << " rings and "
-     << materials_.size() << " materials";
+     << materials_.size() << " materials:\n";
+  for (const auto& m : materials_) {
+    ss << "  * " << m.get().print();
+  }
   return ss.str();
 }
 }  // namespace Demeter
