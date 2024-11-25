@@ -5,6 +5,6 @@
 
 #include <Eigen/Core>
 
-
 using Eigen::ArrayXd;
 using Eigen::ArrayXXd;
+using Eigen::Index;

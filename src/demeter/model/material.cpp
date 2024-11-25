@@ -113,14 +113,12 @@ void Material::check() const {  // TODO use fmt and a logger
     throw std::runtime_error(print());
   }
 
-  auto cast = [&](long int x) { return static_cast<decltype(num_groups_)>(x); };
-
   auto dims = {sigma_t_.size(), sigma_s_.rows(), sigma_s_.cols(),
                sigma_a_.size(), sigma_f_.size(), nu_sigma_f_.size(),
                chi_.size()};
 
-  for (auto d : dims) {
-    if (cast(d) != num_groups_) {
+  for (const auto d : dims) {
+    if (d != num_groups_) {
       std::string msg =
           print() + ", but cross-sections have different sizes " +
           "sigma_t.size()=" + std::to_string(sigma_t_.size()) +

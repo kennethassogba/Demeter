@@ -53,14 +53,14 @@ class Material {
   const auto& SigmaF() const { return sigma_f_; }
   const auto& NuSigmaF() const { return nu_sigma_f_; }
   const auto& Chi() const { return chi_; }
-  auto SigmaT(size_t group) const { return sigma_t_(check(group)); }
-  auto SigmaS(size_t from, size_t to) const {
+  auto SigmaT(Index group) const { return sigma_t_(check(group)); }
+  auto SigmaS(Index from, Index to) const {
     return sigma_s_(check(from), check(to));
   };
-  auto SigmaA(size_t group) const { return sigma_a_(check(group)); }
-  auto SigmaF(size_t group) const { return sigma_f_(check(group)); };
-  auto NuSigmaF(size_t group) const { return nu_sigma_f_(check(group)); };
-  auto Chi(size_t group) const { return chi_(check(group)); };
+  auto SigmaA(Index group) const { return sigma_a_(check(group)); }
+  auto SigmaF(Index group) const { return sigma_f_(check(group)); };
+  auto NuSigmaF(Index group) const { return nu_sigma_f_(check(group)); };
+  auto Chi(Index group) const { return chi_(check(group)); };
   bool fissile() const { return fissile_; }
 
   friend void swap(Material& a, Material& b) {
@@ -78,8 +78,8 @@ class Material {
 
  private:
   void check() const;
-  size_t check(size_t group) const {
-    assert(group < num_groups_);
+  Index check(Index group) const {
+    assert((group > 0) and (group < num_groups_));
     return group;
   }
 
@@ -103,7 +103,7 @@ class Material {
   ArrayXd chi_;
 
   /* The number of energy groups */
-  size_t num_groups_;
+  Index num_groups_;
 
   /* The Material is fissile if it contains a non-zero fission xs */
   bool fissile_;
