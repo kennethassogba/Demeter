@@ -17,20 +17,20 @@ namespace Demeter {
  */
 class Material {
  public:
-  Material(ArrayXd& sigma_t, ArrayXXd& sigma_s, ArrayXd& sigma_a,
-           ArrayXd& sigma_f, ArrayXd& nu_sigma_f, ArrayXd& chi,
-           std::string_view name = "");
+  Material(const ArrayXd& sigma_t, const ArrayXXd& sigma_s,
+           const ArrayXd& sigma_a, const ArrayXd& sigma_f,
+           const ArrayXd& nu_sigma_f, const ArrayXd& chi,
+           const std::string_view name = "");
 
-  // rvalue reference constructor
-  Material(ArrayXd&& sigma_t, ArrayXXd&& sigma_s, ArrayXd&& sigma_a,
-           ArrayXd&& sigma_f, ArrayXd&& nu_sigma_f, ArrayXd&& chi,
-           std::string_view name = "");
+  // for non fissile materials
+  Material(const ArrayXd& sigma_t, const ArrayXXd& sigma_s,
+           const ArrayXd& sigma_a, const std::string_view name = "");
 
   // move constructor
   Material(Material&& other);
 
   // copy constructor
-  Material(const Material& other) { *this = other; }
+  // Material(const Material& other) { *this = other; }
 
   // copy assignment operator
   Material& operator=(Material other) {
@@ -44,8 +44,8 @@ class Material {
     return os << m.print();
   }
 
-  auto name() const { return name_; }
-  auto NumEnergyGroups() const { return num_groups_; }
+  std::string_view name() const { return name_; }
+  auto NumGroups() const { return num_groups_; }
   bool fissile() const { return fissile_; }
 
   const auto& SigmaT() const { return sigma_t_; }

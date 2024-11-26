@@ -1,9 +1,3 @@
-/**
- * @file lattice.hpp
- * @author Kenneth Assogba
- * @brief Lattice class
- */
-
 #pragma once
 
 #include <vector>
@@ -16,12 +10,13 @@ namespace Demeter {
 
 class Lattice {
  public:
-  Lattice(std::vector<std::reference_wrapper<Cell>>& cells,
+  Lattice(std::vector<std::reference_wrapper<Cell>>&& cells,
           std::string name = "")
-      : cells_(cells), name_(name) {}
-  Lattice(std::initializer_list<std::reference_wrapper<Cell>>& cells,
-          std::string name = "")
-      : cells_(cells), name_(name) {}
+      : cells_(std::move(cells)), name_(name) {}
+
+  // Lattice(std::initializer_list<std::reference_wrapper<Cell>>& cells,
+  //         std::string name = "")
+  //     : cells_(cells), name_(name) {}
 
   std::vector<std::reference_wrapper<Cell>>& cells() { return cells_; }
   const std::vector<std::reference_wrapper<Cell>>& cells() const {
