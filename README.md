@@ -20,11 +20,17 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [ ] Code and test Geometry class.
   - [x] Cell
   - [ ] Lattice.
-- [ ] Test Geometry in python.
-- [ ] Code Solver class.
-- [ ] Write full benchmark in C++.
-- [ ] Write full benchmark in Python.
-- [ ] Talk about doc style (eg doxygen) and the way to generate it automatically.
+- [ ] Code Solver module.
+  - [ ] Base solver
+  - [ ] Mesh.
+  - [ ] Boundary conditions.
+- [ ] Test Geometry and solver in python.
+  - [ ] Geometry bindings
+  - [ ] Solver bindings
+  - [ ] Test
+- [ ] Write full benchmark
+  - [ ] In C++.
+  - [ ] In Python.
 - [ ] Enable users to test the lib with codespace and notebooks.
 - [ ] GPU offload.
 
@@ -38,6 +44,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Fix how to launch clang-tidy locally and on action.
 - [ ] Add a Logger (spdlog, or nanolog or fmtlog) and std::format.
 - [ ] Use doctest for unit tests in c++ and python.
+- [ ] Doc style (eg doxygen) and the way to generate it automatically.
 - [ ] Maybe switch to include/demeter, src, src/binding, test, extra directory structure
 - [ ] Add -Werror flag
 - [ ] Setup gcc analizer.
