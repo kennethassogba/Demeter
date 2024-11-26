@@ -25,6 +25,8 @@ class Lattice {
   }
   std::string print() const;
 
+  std::string_view name() const { return name_; }
+
  private:
   std::vector<FillType> components_;  // TODO use matrix
 
