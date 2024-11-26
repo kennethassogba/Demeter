@@ -44,7 +44,7 @@ int main() {
 
   for (const auto* c : {&UO2cell, &H2Ocell}) std::cout << *c << '\n';
 
-  // Lattice assm00{{uo2_cell, uo2_cell}};
+  Lattice assm00{{UO2cell, H2Ocell}, "assm00"};
   // Lattice assm01{{uo2_cell, uo2_cell}};
   // Lattice assm10{{uo2_cell, uo2_cell}};
   // Lattice assm11{{uo2_cell, uo2_cell}};

@@ -31,7 +31,7 @@ class Cell {
     check();
   }
 
-  Cell(double side, std::vector<double>& radii,
+  Cell(double side, const std::vector<double>& radii,
        std::vector<std::reference_wrapper<Material>>&& materials,
        std::string_view name = "")
       : side_(side),

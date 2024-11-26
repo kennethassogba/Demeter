@@ -1,27 +1,24 @@
 #pragma once
 
 #include <vector>
-#include <initializer_list>
+#include <variant>
 #include <iostream>
+#include <string_view>
 
 #include "demeter/model/cell.hpp"
 
 namespace Demeter {
 
 class Lattice {
+  using FillType = std::variant<std::reference_wrapper<Cell>,
+                                std::reference_wrapper<Lattice>>;
+
  public:
-  Lattice(std::vector<std::reference_wrapper<Cell>>&& cells,
-          std::string name = "")
-      : cells_(std::move(cells)), name_(name) {}
+  Lattice(std::vector<FillType>&& components, std::string_view name = "")
+      : components_(std::move(components)), name_(name) {}
 
-  // Lattice(std::initializer_list<std::reference_wrapper<Cell>>& cells,
-  //         std::string name = "")
-  //     : cells_(cells), name_(name) {}
-
-  std::vector<std::reference_wrapper<Cell>>& cells() { return cells_; }
-  const std::vector<std::reference_wrapper<Cell>>& cells() const {
-    return cells_;
-  }
+  auto& components() { return components_; }
+  const auto& components() const { return components_; }
 
   friend std::ostream& operator<<(std::ostream& os, const Lattice& l) {
     return os << l.print();
@@ -29,7 +26,7 @@ class Lattice {
   std::string print() const;
 
  private:
-  std::vector<std::reference_wrapper<Cell>> cells_;
+  std::vector<FillType> components_;  // TODO use matrix
 
   std::string name_;
 };
