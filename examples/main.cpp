@@ -44,12 +44,13 @@ int main() {
 
   for (const auto* c : {&UO2cell, &H2Ocell}) std::cout << *c << '\n';
 
-  Lattice assm00{{UO2cell, H2Ocell}, "assm00"};
-  // Lattice assm01{{uo2_cell, uo2_cell}};
-  // Lattice assm10{{uo2_cell, uo2_cell}};
-  // Lattice assm11{{uo2_cell, uo2_cell}};
+  Lattice assm00{{UO2cell, H2Ocell, UO2cell, H2Ocell}, "assm00"};
+  Lattice assm01{{UO2cell, UO2cell, H2Ocell, H2Ocell}, "assm01"};
+  Lattice assm10{{UO2cell, H2Ocell, UO2cell, UO2cell}, "assm10"};
+  Lattice assm11{{UO2cell, UO2cell, H2Ocell, UO2cell}, "assm11"};
 
-  // Lattice core{{assm00, assm01, assm10, assm11}};
+  Lattice core{{assm00, assm01, assm10, assm11}, "core"};
+  std::cout << core << '\n';
 
   return 0;
 }

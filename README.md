@@ -42,6 +42,8 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup clang-format with Google style.
 - [x] Setup clang-tidy.
 - [x] Fix how to launch clang-tidy locally and on action.
+- [ ] Move bindings elsewhere
+- [ ] Choose how to handle asserts
 - [ ] Add a Logger (spdlog, or nanolog or fmtlog) and std::format.
 - [ ] Use doctest for unit tests in c++ and python.
 - [ ] Doc style (eg doxygen) and the way to generate it automatically.

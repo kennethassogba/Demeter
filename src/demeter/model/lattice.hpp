@@ -15,17 +15,21 @@ class Lattice {
 
  public:
   Lattice(std::vector<FillType>&& components, std::string_view name = "")
-      : components_(std::move(components)), name_(name) {}
+      : components_(std::move(components)), name_(name) {
+    check();
+  }
 
-  auto& components() { return components_; }
-  const auto& components() const { return components_; }
 
   friend std::ostream& operator<<(std::ostream& os, const Lattice& l) {
     return os << l.print();
   }
   std::string print() const;
 
+  const auto& components() const { return components_; }
   std::string_view name() const { return name_; }
+
+ private:
+  void check() const;
 
  private:
   std::vector<FillType> components_;  // TODO use matrix
