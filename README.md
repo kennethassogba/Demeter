@@ -31,6 +31,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [ ] Write full benchmark
   - [ ] In C++.
   - [ ] In Python.
+- [ ] Mesh refiner, rings and sectors for cell
 - [ ] Enable users to test the lib with codespace and notebooks.
 - [ ] GPU offload.
 

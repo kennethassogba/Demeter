@@ -10,6 +10,7 @@ int main() {
 
   CheckOpenMP();
 
+  // Define materials
   ArrayXd sigma_t{{0.222222, 0.833333}};
   ArrayXXd sigma_s{{0.00, 0.02}, {0.00, 0.00}};
   ArrayXd sigma_a{{0.010120, 0.080032}};
@@ -34,6 +35,7 @@ int main() {
   for (const auto* m : {&UO2, &M4, &H2O}) std::cout << *m << '\n';
   std::cout << '\n';
 
+  // Define cells
   double side = 1.0;
   Cell UO2cell(side, {0.5}, {UO2, H2O}, "UO2");
   Cell M4cell(side, {0.4, 0.6}, {M4, UO2, H2O}, "M4");
@@ -42,13 +44,26 @@ int main() {
   for (const auto* c : {&UO2cell, &M4cell, &H2Ocell}) std::cout << *c << '\n';
   std::cout << '\n';
 
+  // Define assemblies
   Lattice assm00{{UO2cell, H2Ocell, UO2cell, H2Ocell}, "assm00"};
   Lattice assm01{{M4cell, UO2cell, H2Ocell, H2Ocell}, "assm01"};
   Lattice assm10{{UO2cell, H2Ocell, UO2cell, M4cell}, "assm10"};
   Lattice assm11{{UO2cell, M4cell, H2Ocell, UO2cell}, "assm11"};
 
+  // Define core
   Lattice core{{assm00, assm01, assm10, assm11}, "core"};
   std::cout << core << '\n';
+
+  // Set boundary conditions
+  // core.BoundaryCondition(BoundarySide::xmin, BoundaryCondition::Vacuum);
+  // core.BoundaryCondition(BoundarySide::xmax, BoundaryCondition::Reflection);
+
+  // Define solver and solve the transport equation
+  // SNConfig sn(2); // SN type, order
+  // FEMConfig dg(2); // fem type, order
+  // Solver solver(sn, dg);
+  // solver.geometry(core);
+  // solver.solve();
 
   return 0;
 }
