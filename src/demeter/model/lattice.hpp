@@ -19,20 +19,25 @@ class Lattice {
     check();
   }
 
+  // void setBoundaryCondition(BoundaryCondition condition, BoundarySide side);
+
+  const auto& components() const { return components_; }
+  std::string_view name() const { return name_; }
 
   friend std::ostream& operator<<(std::ostream& os, const Lattice& l) {
     return os << l.print();
   }
   std::string print() const;
 
-  const auto& components() const { return components_; }
-  std::string_view name() const { return name_; }
-
  private:
   void check() const;
 
  private:
   std::vector<FillType> components_;  // TODO use matrix
+
+  // TODO use one vector
+  // std::vector<BoundaryCondition> boundaryConditions;
+  // std::vector<BoundarySide> boundarySides;
 
   std::string name_;
 };

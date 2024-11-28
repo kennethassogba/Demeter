@@ -59,10 +59,9 @@ int main() {
   // core.BoundaryCondition(BoundarySide::xmax, BoundaryCondition::Reflection);
 
   // Define solver and solve the transport equation
-  // SNConfig sn(2); // SN type, order
-  // FEMConfig dg(2); // fem type, order
-  // Solver solver(sn, dg);
-  // solver.geometry(core);
+  // AngularMethod sn (AngularMethod::Type::SN, 2);
+  // SpatialMethod dg (SpatialMethod::Type::DG, 1);
+  // Solver solver(core, sn, dg);
   // solver.solve();
 
   return 0;
