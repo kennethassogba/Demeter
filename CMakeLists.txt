@@ -72,8 +72,6 @@ set_target_properties(demeter PROPERTIES POSITION_INDEPENDENT_CODE ON)
 # Add demeter to LINK_LIBS
 set(LINK_LIBS ${LINK_LIBS} demeter)
 
-
-
 # Executables
 add_executable(main examples/main.cpp) # create an executable using the specified file
 target_link_libraries(main PRIVATE ${LINK_LIBS})
@@ -86,11 +84,11 @@ nanobind_add_module(_demeter # Name of the extension
                     NB_DOMAIN demeter
                     # Extension source code
                     extras/bindings/material.cpp)
+
 target_link_libraries(_demeter PRIVATE demeter)
 # Install directive for scikit-build-core
 if (SKBUILD)
   install(TARGETS _demeter LIBRARY DESTINATION ${SKBUILD_PROJECT_NAME})
-  # install(TARGETS _demeter LIBRARY DESTINATION demeterpy)
 endif()
 
 # Tests
