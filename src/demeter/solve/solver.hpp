@@ -2,8 +2,8 @@
 
 #include <Eigen/Core>
 
+#include "methods.hpp"
 #include "demeter/common.hpp"
-#include "demeter/methods.hpp"
 #include "demeter/model/lattice.hpp"
 
 namespace Demeter {
@@ -14,8 +14,8 @@ class Solver {
       : core_(core), am_(am), sm_(sm) {};
   void solve();
 
-  auto getFlux() const { return flux_; }
-  auto getPower() const { return power_; }
+  const auto& getFlux() const { return flux_; }
+  const auto& getPower() const { return power_; }
 
  private:
   const Lattice& core_;
