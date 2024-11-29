@@ -10,19 +10,19 @@ namespace Demeter {
 
 class Solver {
  public:
-  Solver(const Lattice& core, AngularMethod& am, SpatialMethod& sm)
-      : core_(core), am_(am), sm_(sm) {};
+  Solver(const Lattice& geo_, AngularMethod& am, SpatialMethod& sm)
+      : geo__(geo_), am_(am), sm_(sm) {};
   void solve();
 
   const auto& getFlux() const { return flux_; }
   const auto& getPower() const { return power_; }
 
  private:
-  const Lattice& core_;
+  const Lattice& geo__;
   AngularMethod& am_;
   SpatialMethod& sm_;
 
-  double keff_;
+  double keff_ = 1.0;
   ArrayXd flux_;
   ArrayXd power_;
 
