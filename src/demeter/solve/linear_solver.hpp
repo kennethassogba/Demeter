@@ -12,7 +12,6 @@ namespace Demeter {
 class LinearSolver {
  public: 
  
-  // Constructeur vide
   LinearSolver(const Eigen::Matrix2f& A, const Eigen::Matrix2f& b) 
       : A_(A), b_(b) {
       // Initialisation par défaut
