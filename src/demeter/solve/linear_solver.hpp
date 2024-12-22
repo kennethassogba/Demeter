@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Eigen/Core>
+#include <Eigen/Dense>
 
 #include "methods.hpp"
 #include "demeter/common.hpp"
@@ -12,9 +13,10 @@ class LinearSolver {
  public: 
  
   // Constructeur vide
-  LinearSolver() {
+  LinearSolver(const Eigen::Matrix2f& A, const Eigen::Matrix2f& b) 
+      : A_(A), b_(b) {
       // Initialisation par défaut
-      std::cout << "Constructeur vide" << std::endl;
+      std::cout << "Initialisation constructeur" << std::endl;
   } 
 
   void solve_llt();
@@ -22,6 +24,9 @@ class LinearSolver {
   void solve_PartialPivLu();	
 
  private:
+  Eigen::Matrix2f A_; 
+  Eigen::Matrix2f b_;
+  
   double tolerance = 1e-5;
   
 };
