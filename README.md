@@ -116,9 +116,3 @@ cmake -S . -B build/ -D CMAKE_CXX_COMPILER=clang++-18
 ```bash
 cmake -S . -B build/ -D CMAKE_CXX_FLAGS=-fsanitize=memory
 ```
-
-## Troubleshooting
-
-## Reference
-
-## License
