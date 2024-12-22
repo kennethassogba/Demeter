@@ -7,29 +7,48 @@
 
 int main() {
   using namespace Demeter;
+  using namespace Eigen;
 
   CheckOpenMP();
 
-  // Define materials
-  ArrayXd sigma_t{{0.222222, 0.833333}};
-  ArrayXXd sigma_s{{0.00, 0.02}, {0.00, 0.00}};
-  ArrayXd sigma_a{{0.010120, 0.080032}};
-  ArrayXd sigma_f{{0., 0.135}};
-  ArrayXd nu_sigma_f{{0., 0.135}};
-  ArrayXd chi{{1., 0.}};
+  // Define variables
+  int ngroups = 2;
+  int naniso  = 0;
+  int nmoms   = (naniso+1)*(naniso+1);
+
+  // Define cross sections
+  ArrayXd  sigma_t(ngroups);
+  ArrayXXd sigma_s(ngroups,ngroups);
+  ArrayXd  sigma_a(ngroups); 
+  ArrayXd  sigma_f(ngroups);
+  ArrayXd  nu_sigma_f(ngroups);
+  ArrayXd  chi(ngroups);   
+
+  // Define UO2 material
+  sigma_t << 0.22222, 0.88888;
+  sigma_s << 0.00, 0.02, 
+             0.00, 0.00;
+  sigma_a << 0.010120, 0.080032;
+  sigma_f << 0., 0.135;
+  nu_sigma_f << 0., 0.135;
+  chi << 1., 0.;   
   Material UO2(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi, "UO2");
 
-  sigma_t = {{0.111111, 0.444443}};
-  sigma_s = {{0.10, 0.02}, {0.20, 0.05}};
-  sigma_a = {{0.040120, 0.010032}};
-  sigma_f = {{0., 0.635}};
-  nu_sigma_f = {{0., 0.535}};
-  chi = {{1., 0.}};
+  // Define M4 material
+  sigma_t << 0.111111, 0.444443;
+  sigma_s << 0.10, 0.02,
+             0.20, 0.05;
+  sigma_a << 0.040120, 0.010032;
+  sigma_f << 0., 0.635;
+  nu_sigma_f << 0., 0.535;
+  chi << 1., 0.;
   Material M4(sigma_t, sigma_s, sigma_a, sigma_f, nu_sigma_f, chi, "M4");
 
-  sigma_t = {{0.11434, 0.41343}};
-  sigma_s = {{0.70, 0.02}, {0.50, 0.25}};
-  sigma_a = {{0.041340, 0.0113432}};
+  // Define H20 material
+  sigma_t << 0.11434, 0.41343;
+  sigma_s << 0.70, 0.02,
+             0.50, 0.25;
+  sigma_a << 0.041340, 0.0113432;
   Material H2O(sigma_t, sigma_s, sigma_a, "H2O");
 
   for (const auto* m : {&UO2, &M4, &H2O}) std::cout << *m << '\n';
@@ -55,14 +74,14 @@ int main() {
   std::cout << core << '\n';
 
   // Set boundary conditions
-  // core.BoundaryCondition(BoundarySide::xmin, BoundaryCondition::Vacuum);
-  // core.BoundaryCondition(BoundarySide::xmax, BoundaryCondition::Reflection);
+  //core.BoundaryCondition(BoundarySide::xmin, BoundaryCondition::Vacuum);
+  //core.BoundaryCondition(BoundarySide::xmax, BoundaryCondition::Reflection);
 
-  // Define solver and solve the transport equation
-  // AngularMethod sn (AngularMethod::Type::SN, 2);
-  // SpatialMethod dg (SpatialMethod::Type::DG, 1);
-  // Solver solver(core, sn, dg);
-  // solver.solve();
+  //// Define solver and solve the transport equation
+  //AngularMethod sn (AngularMethod::Type::SN, 2);
+  //SpatialMethod dg (SpatialMethod::Type::DG, 1);
+  //Solver solver(core, sn, dg);
+  //solver.solve();
 
   return 0;
 }
