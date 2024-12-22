@@ -17,8 +17,8 @@ class GaussLegendre {
   void compute_weights();
  
  private:
-  int nphi_;  // nber of azimutal angles
-  int nteta_; // nber of polar    angles
+  size_t nphi_;  // nber of azimutal angles
+  size_t nteta_; // nber of polar    angles
 
 };
 } // namespace Demeter
