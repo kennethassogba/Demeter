@@ -12,14 +12,14 @@ class LinearSolver {
  public: 
  
   // Constructeur vide
-  Exemple() {
+  LinearSolver() {
       // Initialisation par défaut
       std::cout << "Constructeur vide" << std::endl;
   } 
 
   void solve_llt();
   void solve_ldtl();
-  void solve_PartialPivLu()	
+  void solve_PartialPivLu();	
 
  private:
   double tolerance = 1e-5;

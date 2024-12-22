@@ -4,12 +4,26 @@
 #include <Eigen/Dense>
 
 #include "demeter/model.hpp"
+#include "demeter/solve.hpp"
 
 int main() {
   using namespace Demeter;
   using namespace Eigen;
 
   CheckOpenMP();
+
+
+  Eigen::Matrix2f A, b;
+  A << 2, -1, -1, 3; // sorted line by line
+  b << 1, 2, 3, 1;
+  std::cout << "Here is the matrix A:\n" << A << std::endl;
+  std::cout << "Here is the right hand side b:\n" << b << std::endl;
+  Eigen::Matrix2f x1 = A.ldlt().solve(b);
+  std::cout << "The solution is:\n" << x1 << std::endl;
+
+  Eigen::Matrix2f x2 = A.llt().solve(b);
+  std::cout << "The solution is:\n" << x2 << std::endl;
+
 
   // Define variables
   int ngroups = 2;
@@ -73,15 +87,15 @@ int main() {
   Lattice core{{assm00, assm01, assm10, assm11}, "core"};
   std::cout << core << '\n';
 
-  // Set boundary conditions
-  //core.BoundaryCondition(BoundarySide::xmin, BoundaryCondition::Vacuum);
-  //core.BoundaryCondition(BoundarySide::xmax, BoundaryCondition::Reflection);
+  //// Set boundary conditions
+  ////core.BoundaryCondition(BoundarySide::xmin, BoundaryCondition::Vacuum);
+  ////core.BoundaryCondition(BoundarySide::xmax, BoundaryCondition::Reflection);
 
-  //// Define solver and solve the transport equation
-  //AngularMethod sn (AngularMethod::Type::SN, 2);
-  //SpatialMethod dg (SpatialMethod::Type::DG, 1);
-  //Solver solver(core, sn, dg);
-  //solver.solve();
+  ////// Define solver and solve the transport equation
+  ////AngularMethod sn (AngularMethod::Type::SN, 2);
+  ////SpatialMethod dg (SpatialMethod::Type::DG, 1);
+  ////Solver solver(core, sn, dg);
+  ////solver.solve();
 
   return 0;
 }

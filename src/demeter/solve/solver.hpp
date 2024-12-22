@@ -15,6 +15,7 @@ class Solver {
   void solve();
 
   const auto& getFlux() const { return flux_; }
+  const auto& getFiss() const { return fiss_; }
   const auto& getPower() const { return power_; }
 
  private:
@@ -24,9 +25,11 @@ class Solver {
 
   double keff_ = 1.0;
   ArrayXd flux_;
+  ArrayXd fiss_;
   ArrayXd power_;
 
   double tolerence_keff_ = 1e-5;
   double tolerence_flux_ = 1e-5;
+  double tolerence_fiss_ = 1e-4;
 };
 }  // namespace Demeter
