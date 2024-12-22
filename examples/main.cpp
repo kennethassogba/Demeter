@@ -25,9 +25,9 @@ int main() {
 
 
   // Define variables
-  int ngroups = 2;
-  int naniso  = 0;
-  int nmoms   = (naniso+1)*(naniso+1);
+  size_t ngroups = 2;
+  size_t naniso  = 0;
+  size_t nmoms   = (naniso+1)*(naniso+1);
 
   // Define cross sections
   ArrayXd  sigma_t(ngroups);
