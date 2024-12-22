@@ -12,18 +12,11 @@ int main() {
 
   CheckOpenMP();
 
+  // Test linear solvers
   Eigen::Matrix2f A, b;
   A << 2, -1, -1, 3; 
   b << 1, 2, 3, 1;
-  std::cout << "Here is the matrix A:\n" << A << std::endl;
-  std::cout << "Here is the right hand side b:\n" << b << std::endl;
-  Eigen::Matrix2f x1 = A.ldlt().solve(b);
-  std::cout << "The solution is:\n" << x1 << std::endl;
-
-  Eigen::Matrix2f x2 = A.llt().solve(b);
-  std::cout << "The solution is:\n" << x2 << std::endl;
-  std::cout << '\n';
-
+  
   LinearSolver LinSolver(A,b); 
   LinSolver.solve_llt();
   LinSolver.solve_ldtl();
