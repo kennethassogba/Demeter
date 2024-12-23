@@ -1,24 +1,26 @@
 #pragma once
 
-
-#include <Eigen/Core>
 #include <Eigen/Dense>
 
 namespace Demeter {
 
+template <std::size_t nteta>
 class GaussLegendre {
  public:
+  // Define array initializer
+  static void initialization();
 
-  GaussLegendre(const int& nphi, const int& nteta) 
-     : nphi_(nphi), nteta_(nteta) {
-  }
+  // Define getter methods
+  const Eigen::ArrayXd& getweights() const { return weights_; }
+  const Eigen::ArrayXd& getcosteta() const { return costeta_; }
+  const Eigen::ArrayXd& getteta() const { return teta_; }
 
-  void compute_angles();
-  void compute_weights();
  
  private:
-  size_t nphi_;  // nber of azimutal angles
-  size_t nteta_; // nber of polar    angles
-
+  static Eigen::ArrayXd weights_;
+  static Eigen::ArrayXd costeta_;
+  static Eigen::ArrayXd teta_;
 };
+
+
 } // namespace Demeter

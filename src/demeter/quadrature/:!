@@ -1,0 +1,20 @@
+#pragma once
+
+
+#include <Eigen/Core>
+#include <Eigen/Dense>
+
+#include <array>
+#include <span>
+
+namespace Demeter {
+
+template <std::size_t N>
+class GaussLegendre {
+ public:
+  std::span<const double> wgt() const { return {weights_.begin(), weights_.end()}; }
+
+ private:
+  static const std::array<double, N / 2> weights_;
+};
+} // namespace Demeter

@@ -5,8 +5,12 @@
 #include <Eigen/Dense>
 
 // To do
-// 1 - Automatiser le calcul des racines et des poids pour
-//     aller jusqua 48 (python)
+// 1 - Definir une structure qui permettent d'aller chercher
+//     les bons tableaux selon le nombre d'angles polaires
+// 2 - Simplifier la structure car plusieurs fois les memes 
+//     valeurs a un signe pres
+// 3 - Automatiser le calcul des racines et des poids pour
+//     aller jusqua 48
 // Tous les poids sont a diviser par deux
 // teta est dans [0,pi] pas besoin des angles teta
 // dans [pi,2pi] on fait teta_k+pi avec 
@@ -14,19 +18,13 @@
 
 namespace Demeter {
 
-// nteta = 2
+
+// N = 2
 template <>
-Eigen::ArrayXd GaussLegendre<2>::weights_(1); 
-template <>
-Eigen::ArrayXd GaussLegendre<2>::costeta_(1); 
-template <>
-Eigen::ArrayXd GaussLegendre<2>::teta_(1); 
-template <>
-void GaussLegendre<2>::initialization() {
-    weights_ << 2.00000;
-    costeta_ << 0.00000;
-    teta_    << 0.00000;
-}
+
+const auto GaussLegendre<2>::weights_ = flux_ = ArrayXd::Ones(2);
+const std::array<double, 1> GaussLegendre<2>::wgt_ = {
+    1.00000000000000000000000000000000000e+00};
 
 // nteta = 1
  //ArrayXd  costeta(1);
@@ -76,3 +74,4 @@ void GaussLegendre<2>::initialization() {
 // nteta = 48
 
 } // namespace Demeter
+
