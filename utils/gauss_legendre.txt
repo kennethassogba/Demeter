@@ -1,47 +1,3 @@
-#include "gauss_legendre.hpp"
-
-#include <cmath>
-#include <iostream>
-#include <Eigen/Dense>
-
-// To do
-// 1 - Automatiser le calcul des racines et des poids pour
-//     aller jusqua 48 (python)
-// Tous les poids sont a diviser par deux
-// teta est dans [0,pi] pas besoin des angles teta
-// dans [pi,2pi] on fait teta_k+pi avec 
-// w_{k+pi} = w_k  
-
-namespace Demeter {
-
-//// nteta = 2
-//template <>
-//Eigen::ArrayXd GaussLegendre<2>::weights_(1); 
-//template <>
-//Eigen::ArrayXd GaussLegendre<2>::costeta_(1); 
-//template <>
-//Eigen::ArrayXd GaussLegendre<2>::teta_(1); 
-//template <>
-//void GaussLegendre<2>::initialization() {
-//    weights_ << 2.00000;
-//    costeta_ << 0.57735;
-//    teta_    << 0.00000;
-//}
-//
-//// nteta = 4
-//template <>
-//Eigen::ArrayXd GaussLegendre<4>::weights_(2); 
-//template <>
-//Eigen::ArrayXd GaussLegendre<4>::costeta_(2); 
-//template <>
-//Eigen::ArrayXd GaussLegendre<4>::teta_(1); 
-//template <>
-//void GaussLegendre<2>::initialization() {
-//    weights_ << 0.652145, 0.347855;
-//    costeta_ << 0.339981, 0.861136;
-//    teta_    << 0.000000, 0.000000;
-//}
-
 // nteta = 2
 template <>
 Eigen::ArrayXd GaussLegendre<2>::weights_(1);
@@ -354,4 +310,3 @@ void GaussLegendre<48>::initialization() {
     costeta_ << 0.00000;
     teta_ << 0.00000;
 }
-} // namespace Demeter

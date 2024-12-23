@@ -5,8 +5,29 @@
 # of order n. 
 # See https://mathworld.wolfram.com/Legendre-GaussQuadrature.html
 
+from scipy.special import roots_legendre
 
-# w_i = (2 * (1-roots[i]**2)) / ((i+1)**2 * (PL(roots[i]))**2)
+roots, weights = roots_legendre(2)
+#print(roots_legendre(2))
+#print(roots_legendre(4))
 
-
-# SUM(W_i) = 2.
+a = 0
+for i in range(24):
+  a +=2
+  print("// nteta = " + str(a))
+  print("template <>")
+  print("Eigen::ArrayXd GaussLegendre<"+str(a)+">::weights_("+str(round(a/2))+");") 
+  print("template <>")                                            
+  print("Eigen::ArrayXd GaussLegendre<"+str(a)+">::costeta_("+str(round(a/2))+");") 
+  print("template <>")
+  print("Eigen::ArrayXd GaussLegendre<"+str(a)+">::teta_("+str(round(a/2))+");") 
+  print("template <>")
+  print("void GaussLegendre<"+str(a)+">::initialization() {")
+  print("    weights_ << 0.00000;")
+  print("    costeta_ << 0.00000;")
+  print("    teta_ << 0.00000;")
+  print("}")
+  #roots, weights = roots_legendre(2)
+  #print(roots)
+  #roots, weights = roots_legendre(4)
+  #print(roots)
