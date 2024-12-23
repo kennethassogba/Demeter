@@ -7,7 +7,11 @@
 
 from scipy.special import roots_legendre
 
-roots, weights = roots_legendre(2)
+roots, weights = roots_legendre(48)
+
+print("Somme des poids")
+print(sum(weights))
+
 #print(roots_legendre(2))
 #print(roots_legendre(4))
 
@@ -31,6 +35,7 @@ for i in range(24):
   #print("}")
 
   # / ** Printing data ** /
+  print("//" + str(a))
   roots, weights = roots_legendre(a)
   print("Half")
   print("Weights")
