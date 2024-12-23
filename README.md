@@ -21,8 +21,10 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
   - [x] Cell
   - [x] Lattice.
 - [ ] Code and test angular quadrature
-  - [ ] Gauss-Legendre
-- [ ] Code and test Solver module.
+  - [x] Gauss-Legendre
+- [ ] Code and test Solver module
+  - [ ] Compute fission source
+  - [ ] Compute scattering source
   - [ ] Base solver
   - [ ] Mesh.
   - [ ] Boundary conditions.
