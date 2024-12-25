@@ -21,6 +21,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
   - [x] Cell
   - [x] Lattice.
 - [ ] Code and test angular quadrature
+<<<<<<< HEAD
   - [ ] Gauss-Legendre
 - ** ----------------------------- **
 - ** Avertissement: Coder generale 
