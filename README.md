@@ -21,24 +21,17 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
   - [x] Cell
   - [x] Lattice.
 - [ ] Code and test angular quadrature
-<<<<<<< HEAD
-  - [ ] Gauss-Legendre
-- ** ----------------------------- **
-- ** Avertissement: Coder generale 
--    pour optimiser dans les details 
--    ensuite (Ex : comment structure 
--    propre autop, flux) ** 
-- ** ----------------------------- **
+  - [x] Gauss-Legendre
 - [ ] Code and test Solver module.
-  - [ ] Compute and update fission source
-  - [ ] Compute and update keff 
-  - [ ] Compute and update scattering source 
-  - [ ] Base solver
+  - [ ] Compute and update fission source.
+  - [ ] Compute and update keff.
+  - [ ] Compute and update scattering source.
+  - [ ] Base solver.
   - [ ] Mesh.
   - [ ] Boundary conditions.
 - [ ] Test Geometry and solver in python.
-  - [ ] Geometry bindings
-  - [ ] Solver bindings
+  - [ ] Geometry bindings.
+  - [ ] Solver bindings.
   - [ ] Test
 - [ ] Write full benchmark
   - [ ] In C++.
@@ -75,7 +68,8 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - CMake 3.4 and newer `apt install cmake`.
 - Eigen 3.3 and newer `apt install libeigen3-dev`.
 - Python 3.8 and newer `apt install libpython3-dev`
-  - Nanobind is installed as a git submodule.
+- Doxygen 1.12 and newer 'apt install doxygen'
+  
 ## Build Python package
 
 ```bash
@@ -131,7 +125,9 @@ cmake -S . -B build/ -D CMAKE_CXX_FLAGS=-fsanitize=memory
 
 The documentation is automatically generated using Doxygen. To
 install it, refer to: https://www.doxygen.nl/manual/install.html 
-Generate the doc
+
+### Generate the doc
+
 ```bash
 doxygen Doxyfile
 ```
