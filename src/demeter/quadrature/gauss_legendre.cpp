@@ -4,14 +4,6 @@
 #include <iostream>
 #include <Eigen/Dense>
 
-// To do
-// 1 - Automatiser le calcul des racines et des poids pour
-//     aller jusqua 48 (python)
-// Tous les poids sont a diviser par deux
-// teta est dans [0,pi] pas besoin des angles teta
-// dans [pi,2pi] on fait teta_k+pi avec 
-// w_{k+pi} = w_k  
-
 namespace Demeter {
 
 // nteta = 2

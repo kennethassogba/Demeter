@@ -22,7 +22,16 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
   - [x] Lattice.
 - [ ] Code and test angular quadrature
   - [ ] Gauss-Legendre
+- ** ----------------------------- **
+- ** Avertissement: Coder generale 
+-    pour optimiser dans les details 
+-    ensuite (Ex : comment structure 
+-    propre autop, flux) ** 
+- ** ----------------------------- **
 - [ ] Code and test Solver module.
+  - [ ] Compute and update fission source
+  - [ ] Compute and update keff 
+  - [ ] Compute and update scattering source 
   - [ ] Base solver
   - [ ] Mesh.
   - [ ] Boundary conditions.
@@ -116,3 +125,15 @@ cmake -S . -B build/ -D CMAKE_CXX_COMPILER=clang++-18
 ```bash
 cmake -S . -B build/ -D CMAKE_CXX_FLAGS=-fsanitize=memory
 ```
+
+## Documentation
+
+The documentation is automatically generated using Doxygen. To
+install it, refer to: https://www.doxygen.nl/manual/install.html 
+Generate the doc
+```bash
+doxygen Doxyfile
+```
+
+You can modify the configuration file Doxyfile to generate the 
+documentation according to your preferences.

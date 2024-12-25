@@ -4,10 +4,24 @@
 
 namespace Demeter {
 
+ /**
+ * @brief Template to store roots and weights
+ *        for diffents number of polar angles.
+ *
+ * @tparam nteta Number of polar angles in [0,pi].
+ *
+ * @note If cos(teta) is in the quadrature set, 
+ * then -cos(teta) is also in the quadrature set
+ * with the same weight. This data are stored from 
+ * nteta/2 to neta to reduce the footprint memory.
+ */
 template <std::size_t nteta>
 class GaussLegendre {
  public:
-  // Define array initializer
+  
+  /**
+  * @brief Allocate the arrays to store the data.
+  */
   static void initialization();
 
   // Define getter methods
