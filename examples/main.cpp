@@ -5,12 +5,28 @@
 
 #include "demeter/model.hpp"
 #include "demeter/solve.hpp"
+#include "demeter/quadrature.hpp"
 
 int main() {
   using namespace Demeter;
   using namespace Eigen;
 
   CheckOpenMP();
+
+  // Define variables
+  constexpr size_t nteta   = 48;
+  constexpr size_t ngroups = 2;
+  constexpr size_t naniso  = 0;
+  constexpr size_t nmoms   = (naniso+1)*(naniso+1);
+
+  // Test sum of gaussian weights
+  GaussLegendre<nteta> gauss;
+  gauss.getweights();
+  
+  ArrayXd weights(nteta/2);
+  weights = gauss.getweights();
+  std::cout << weights;
+  std::cout << "\n";
 
   // Test linear solvers
   Eigen::Matrix2f A, b;
@@ -24,11 +40,7 @@ int main() {
   std::cout << '\n';
 
 
-  // Define variables
-  size_t ngroups = 2;
-  size_t naniso  = 0;
-  size_t nmoms   = (naniso+1)*(naniso+1);
-
+  
   // Define cross sections
   ArrayXd  sigma_t(ngroups);
   ArrayXXd sigma_s(ngroups,ngroups);

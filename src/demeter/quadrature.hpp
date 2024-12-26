@@ -1,3 +1,3 @@
 #pragma once
 
-#include "solve/gauss_legendre.hpp"
+#include "quadrature/gauss_legendre.hpp"

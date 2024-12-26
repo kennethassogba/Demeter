@@ -2,6 +2,13 @@
 
 #include <Eigen/Dense>
 
+// to do
+
+// fonction qui permet assurer 
+// somme des poids vaut 1
+// permet assurer angles dans 0 pi
+
+
 namespace Demeter {
 
  /**
@@ -19,10 +26,14 @@ template <std::size_t nteta>
 class GaussLegendre {
  public:
   
+  GaussLegendre() {
+      initialization();
+  }
+  
   /**
   * @brief Allocate the arrays to store the data.
   */
-  static void initialization();
+  void initialization();
 
   // Define getter methods
   const Eigen::ArrayXd& getweights() const { return weights_; }
