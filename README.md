@@ -20,7 +20,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Code and test Geometry class.
   - [x] Cell
   - [x] Lattice.
-- [ ] Code and test angular quadrature
+- [x] Code and test angular quadrature
   - [x] Gauss-Legendre
 - [ ] Code and test Solver module.
   - [ ] Compute and update fission source.
@@ -49,7 +49,7 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup clang-tidy.
 - [x] Fix how to launch clang-tidy locally and on action.
 - [x] Move bindings elsewhere
-- [ ] Doc style (eg doxygen) and the way to generate it automatically.
+- [x] Doc style (eg doxygen) and the way to generate it automatically.
 - [ ] Choose how to handle asserts: thow user errors at runtime and assert internal error on debug build
 - [ ] Add a Logger (spdlog, or nanolog or fmtlog) and std::format.
 - [ ] Add a timer.
