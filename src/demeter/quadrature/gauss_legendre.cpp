@@ -7,7 +7,6 @@
 namespace Demeter {
 
 // nteta = 2
-//template class GaussLegendre<2>;
 template <>
 Eigen::ArrayXd GaussLegendre<2>::weights_(1);
 template <>
@@ -20,8 +19,9 @@ void GaussLegendre<2>::initialization() {
     costeta_ << 0.57735027;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<2>;
+
 // nteta = 4
-template class GaussLegendre<4>;
 template <>
 Eigen::ArrayXd GaussLegendre<4>::weights_(2);
 template <>
@@ -34,8 +34,9 @@ void GaussLegendre<4>::initialization() {
     costeta_ << 0.33998104, 0.86113631;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<4>;
+
 // nteta = 6
-template class GaussLegendre<6>;
 template <>
 Eigen::ArrayXd GaussLegendre<6>::weights_(3);
 template <>
@@ -48,8 +49,9 @@ void GaussLegendre<6>::initialization() {
     costeta_ << 0.23861919, 0.66120939, 0.93246951;
     teta_ << 0.23861919, 0.66120939, 0.93246951;
 }
+template class GaussLegendre<6>;
+
 // nteta = 8
-template class GaussLegendre<8>;
 template <>
 Eigen::ArrayXd GaussLegendre<8>::weights_(4);
 template <>
@@ -62,8 +64,9 @@ void GaussLegendre<8>::initialization() {
     costeta_ << 0.18343464, 0.52553241, 0.79666648, 0.96028986;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<8>;
+
 // nteta = 10
-template class GaussLegendre<10>;
 template <>
 Eigen::ArrayXd GaussLegendre<10>::weights_(5);
 template <>
@@ -76,8 +79,9 @@ void GaussLegendre<10>::initialization() {
     costeta_ << 0.14887434, 0.43339539, 0.67940957, 0.86506337, 0.97390653;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<10>;
+
 // nteta = 12
-template class GaussLegendre<12>;
 template <>
 Eigen::ArrayXd GaussLegendre<12>::weights_(6);
 template <>
@@ -92,8 +96,9 @@ void GaussLegendre<12>::initialization() {
                 0.98156063;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<12>;
+
 // nteta = 14
-template class GaussLegendre<14>;
 template <>
 Eigen::ArrayXd GaussLegendre<14>::weights_(7);
 template <>
@@ -108,8 +113,9 @@ void GaussLegendre<14>::initialization() {
                 0.92843488, 0.98628381;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<14>;
+
 // nteta = 16
-template class GaussLegendre<16>;
 template <>
 Eigen::ArrayXd GaussLegendre<16>::weights_(8);
 template <>
@@ -124,8 +130,9 @@ void GaussLegendre<16>::initialization() {
                 0.8656312, 0.94457502, 0.98940093;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<16>;
+
 // nteta = 18
-template class GaussLegendre<18>;
 template <>
 Eigen::ArrayXd GaussLegendre<18>::weights_(9);
 template <>
@@ -139,8 +146,9 @@ void GaussLegendre<18>::initialization() {
     costeta_ << 0.00000;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<18>;
+
 // nteta = 20
-template class GaussLegendre<20>;
 template <>
 Eigen::ArrayXd GaussLegendre<20>::weights_(10);
 template <>
@@ -155,8 +163,9 @@ void GaussLegendre<20>::initialization() {
                 0.74633191, 0.83911697, 0.91223443, 0.96397193, 0.9931286;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<20>;
+
 // nteta = 22
-template class GaussLegendre<22>;
 template <>
 Eigen::ArrayXd GaussLegendre<22>::weights_(11);
 template <>
@@ -173,8 +182,9 @@ void GaussLegendre<22>::initialization() {
                 0.99429459;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<22>;
+
 // nteta = 24
-template class GaussLegendre<24>;
 template <>
 Eigen::ArrayXd GaussLegendre<24>::weights_(12);
 template <>
@@ -191,8 +201,9 @@ void GaussLegendre<24>::initialization() {
                 0.97472856, 0.99518722;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<24>;
+
 // nteta = 26
-template class GaussLegendre<26>;
 template <>
 Eigen::ArrayXd GaussLegendre<26>::weights_(13);
 template <>
@@ -209,8 +220,9 @@ void GaussLegendre<26>::initialization() {
                 0.94715907, 0.97838545, 0.9958857;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<26>;
+
 // nteta = 28
-template class GaussLegendre<28>;
 template <>
 Eigen::ArrayXd GaussLegendre<28>::weights_(14);
 template <>
@@ -227,8 +239,9 @@ void GaussLegendre<28>::initialization() {
                 0.91563303, 0.95425928, 0.98130317, 0.9964425;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<28>;
+
 // nteta = 30
-template class GaussLegendre<30>;
 template <>
 Eigen::ArrayXd GaussLegendre<30>::weights_(15);
 template <>
@@ -245,8 +258,9 @@ void GaussLegendre<30>::initialization() {
                 0.88256054, 0.92620005, 0.96002186, 0.98366812, 0.99689348;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<30>;
+
 // nteta = 32
-template class GaussLegendre<32>;
 template <>
 Eigen::ArrayXd GaussLegendre<32>::weights_(16);
 template <>
@@ -265,8 +279,9 @@ void GaussLegendre<32>::initialization() {
                 0.99726386;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<32>;
+
 // nteta = 34
-template class GaussLegendre<34>;
 template <>
 Eigen::ArrayXd GaussLegendre<34>::weights_(17);
 template <>
@@ -285,8 +300,9 @@ void GaussLegendre<34>::initialization() {
                 0.98722782, 0.99757175;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<34>;
+
 // nteta = 36
-template class GaussLegendre<36>;
 template <>
 Eigen::ArrayXd GaussLegendre<36>::weights_(18);
 template <>
@@ -305,8 +321,9 @@ void GaussLegendre<36>::initialization() {
                 0.97202769, 0.98858648, 0.99783046;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<36>;
+
 // nteta = 38
-template class GaussLegendre<38>;
 template <>
 Eigen::ArrayXd GaussLegendre<38>::weights_(19);
 template <>
@@ -325,8 +342,9 @@ void GaussLegendre<38>::initialization() {
                 0.95346633, 0.97484633, 0.98973945, 0.99804993;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<38>;
+
 // nteta = 40
-template class GaussLegendre<40>;
 template <>
 Eigen::ArrayXd GaussLegendre<40>::weights_(20);
 template <>
@@ -345,8 +363,9 @@ void GaussLegendre<40>::initialization() {
                 0.93281281, 0.95791682, 0.97725995, 0.99072624, 0.99823771;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<40>;
+
 // nteta = 42
-template class GaussLegendre<42>;
 template <>
 Eigen::ArrayXd GaussLegendre<42>::weights_(21);
 template <>
@@ -367,8 +386,9 @@ void GaussLegendre<42>::initialization() {
                 0.99839962;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<42>;
+
 // nteta = 44
-template class GaussLegendre<44>;
 template <>
 Eigen::ArrayXd GaussLegendre<44>::weights_(22);
 template <>
@@ -389,8 +409,9 @@ void GaussLegendre<44>::initialization() {
                 0.99231639, 0.9985402;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<44>;
+
 // nteta = 46
-template class GaussLegendre<46>;
 template <>
 Eigen::ArrayXd GaussLegendre<46>::weights_(23);
 template <>
@@ -411,8 +432,9 @@ void GaussLegendre<46>::initialization() {
                 0.98273367, 0.99296235, 0.99866304;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<46>;
+
 // nteta = 48
-template class GaussLegendre<48>;
 template <>
 Eigen::ArrayXd GaussLegendre<48>::weights_(24);
 template <>
@@ -433,4 +455,6 @@ void GaussLegendre<48>::initialization() {
                 0.97059159, 0.98412458, 0.99353017, 0.99877101;
     teta_ = costeta_.acos() * 180.0 / M_PI;
 }
+template class GaussLegendre<48>;
+
 } // namespace Demeter
