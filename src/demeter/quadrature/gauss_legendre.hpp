@@ -35,12 +35,24 @@ class GaussLegendre {
   */
   void initialization();
 
-  // Define getter methods
+  /**
+  * @brief Getter func to return weights.
+  */
   const Eigen::ArrayXd& getweights() const { return weights_; }
+
+  /**
+  * @brief Getter func to return cosines.
+  */
   const Eigen::ArrayXd& getcosteta() const { return costeta_; }
+
+  /**
+  * @brief Getter func to return teta.
+  *  
+  * @note Teta is define starting from the (Oz)
+  * axis as in [Applied Reactor Physics, Hebert]
+  */
   const Eigen::ArrayXd& getteta() const { return teta_; }
 
- 
  private:
   static Eigen::ArrayXd weights_;
   static Eigen::ArrayXd costeta_;

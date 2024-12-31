@@ -18,6 +18,9 @@ class Solver {
   const auto& getFiss() const { return fiss_; }
   const auto& getPower() const { return power_; }
 
+  auto& updateFissSrc();
+  auto& updateScatSrc();
+
  private:
   const Lattice& geo__;
   AngularMethod& am_;
