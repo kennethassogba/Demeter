@@ -65,9 +65,9 @@ class PowerIteration {
   void solve();
 
  private:
-  
+
   double lambda_;
-  double tol_eigvector_ = 1e-5;
+  double tol_eigvector_ = 1e-10;
   double tol_eigvalue_  = 1e-5;
 
   Eigen::MatrixXd A_; 

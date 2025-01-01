@@ -31,10 +31,14 @@ int main() {
   // Test power iteration solver
   // 1st problem, vp : (5, 2)
   Eigen::MatrixXd A1(2,2);
+  Eigen::VectorXd  x1(2);
+  Eigen::VectorXd  y1(2);
+  
   A1 << 4, 1,
         1, 3;
-  // PowerIteration PowIte(A);
-  // PowIte.solve(); 
+ 
+  PowerIteration PowIteA(A1);
+  PowIteA.solve(); 
 
   // 2nd problem, vp : (11.25, 7.34, 5.11, 4.30)
   Eigen::MatrixXd B1(4,4);
@@ -42,6 +46,9 @@ int main() {
          2, 8, 1, 0,
          0, 1, 6, 1,
          0, 0, 1, 4;
+
+  PowerIteration PowIteB(B1);
+  PowIteB.solve(); 
 
   // 3rd problem
   // vp : (11.34, 11.28, 8.56, 6.68, 4.84, 2.20)
@@ -52,6 +59,9 @@ int main() {
          0,  0, 1, 7, 1, 0,
          0,  0, 0, 1, 5, 1,
          0,  0, 0, 0, 1, 3;
+
+  PowerIteration PowIteC(C1);
+  PowIteC.solve(); 
 
   // Test linear solvers
   Eigen::Matrix2f A, b;
