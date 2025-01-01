@@ -35,4 +35,46 @@ class Solver {
   double tolerence_flux_ = 1e-5;
   double tolerence_fiss_ = 1e-4;
 };
+
+/**
+ * @brief Class that solve a problem of the
+ * type Ax=lb, with l a scalar.
+ */
+class PowerIteration {
+ public:
+ 
+  /**
+  * @brief Standard eigenvalue problem constructor.
+  */
+  PowerIteration(const Eigen::MatrixXd& A) 
+      : A_(A) {
+      std::cout << "Initialisation" << std::endl;
+  }
+
+  /**
+  * @brief Generalized eigenvalue problem constructor. 
+  */
+  PowerIteration(const Eigen::MatrixXd& A, const Eigen::MatrixXd& B) 
+      : A_(A), B_(B) {
+      std::cout << "Initialisation" << std::endl;
+  }
+
+  /**
+  * @brief Solve the eigenvalue problem. 
+  */
+  void solve();
+
+ private:
+  
+  double lambda_;
+  double tol_eigvector_ = 1e-5;
+  double tol_eigvalue_  = 1e-5;
+
+  Eigen::MatrixXd A_; 
+  Eigen::MatrixXd B_;
+  Eigen::ArrayXd  x_;
+};
+
+
+
 }  // namespace Demeter

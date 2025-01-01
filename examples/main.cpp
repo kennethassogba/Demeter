@@ -25,8 +25,33 @@ int main() {
   
   ArrayXd weights(nteta/2);
   weights = gauss.getweights();
-  std::cout << weights;
+  std::cout << weights.sum();
   std::cout << "\n";
+
+  // Test power iteration solver
+  // 1st problem, vp : (5, 2)
+  Eigen::MatrixXd A1(2,2);
+  A1 << 4, 1,
+        1, 3;
+  // PowerIteration PowIte(A);
+  // PowIte.solve(); 
+
+  // 2nd problem, vp : (11.25, 7.34, 5.11, 4.30)
+  Eigen::MatrixXd B1(4,4);
+  B1 << 10, 2, 0, 0,
+         2, 8, 1, 0,
+         0, 1, 6, 1,
+         0, 0, 1, 4;
+
+  // 3rd problem
+  // vp : (11.34, 11.28, 8.56, 6.68, 4.84, 2.20)
+  Eigen::MatrixXd C1(6,6);
+  C1 << 12,  3, 0, 0, 0, 0, 
+         3, 11, 2, 0, 0, 0,
+         0,  2, 9, 1, 0, 0,
+         0,  0, 1, 7, 1, 0,
+         0,  0, 0, 1, 5, 1,
+         0,  0, 0, 0, 1, 3;
 
   // Test linear solvers
   Eigen::Matrix2f A, b;
@@ -39,8 +64,6 @@ int main() {
   LinSolver.solve_PartialPivLu();
   std::cout << '\n';
 
-
-  
   // Define cross sections
   ArrayXd  sigma_t(ngroups);
   ArrayXXd sigma_s(ngroups,ngroups);
