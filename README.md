@@ -20,13 +20,18 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Code and test Geometry class.
   - [x] Cell
   - [x] Lattice.
-- [ ] Code Solver module.
-  - [ ] Base solver
+- [x] Code and test angular quadrature
+  - [x] Gauss-Legendre
+- [ ] Code and test Solver module.
+  - [ ] Compute and update fission source.
+  - [ ] Compute and update keff.
+  - [ ] Compute and update scattering source.
+  - [ ] Base solver.
   - [ ] Mesh.
   - [ ] Boundary conditions.
 - [ ] Test Geometry and solver in python.
-  - [ ] Geometry bindings
-  - [ ] Solver bindings
+  - [ ] Geometry bindings.
+  - [ ] Solver bindings.
   - [ ] Test
 - [ ] Write full benchmark
   - [ ] In C++.
@@ -44,11 +49,11 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup clang-tidy.
 - [x] Fix how to launch clang-tidy locally and on action.
 - [x] Move bindings elsewhere
+- [x] Doc style (eg doxygen) and the way to generate it automatically.
 - [ ] Choose how to handle asserts: thow user errors at runtime and assert internal error on debug build
 - [ ] Add a Logger (spdlog, or nanolog or fmtlog) and std::format.
 - [ ] Add a timer.
 - [ ] Use doctest for unit tests in c++ and python.
-- [ ] Doc style (eg doxygen) and the way to generate it automatically.
 - [ ] Maybe switch to include/demeter, src, src/binding, test, extra directory structure
 - [ ] Add -Werror flag
 - [ ] Setup gcc analizer.
@@ -63,7 +68,8 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - CMake 3.4 and newer `apt install cmake`.
 - Eigen 3.3 and newer `apt install libeigen3-dev`.
 - Python 3.8 and newer `apt install libpython3-dev`
-
+- Doxygen 1.12 and newer `apt install doxygen`
+  
 ## Build Python package
 
 ```bash
@@ -115,8 +121,16 @@ cmake -S . -B build/ -D CMAKE_CXX_COMPILER=clang++-18
 cmake -S . -B build/ -D CMAKE_CXX_FLAGS=-fsanitize=memory
 ```
 
-## Troubleshooting
+## Documentation
 
-## Reference
+The documentation is automatically generated using Doxygen. To
+install it, refer to: https://www.doxygen.nl/manual/install.html 
 
-## License
+### Generate the doc
+
+```bash
+doxygen Doxyfile
+```
+
+You can modify the configuration file Doxyfile to generate the 
+documentation according to your preferences.

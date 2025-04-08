@@ -33,3 +33,12 @@ __pycache__
 *.pyd
 *.egg-info
 pyenv
+
+# Doxygene documentation
+*.html
+*.js
+*.tex
+*.svg
+*.png
+*.css
+*.sty
