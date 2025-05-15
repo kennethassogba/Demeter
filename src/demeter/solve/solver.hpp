@@ -42,39 +42,34 @@ class Solver {
  */
 class PowerIteration {
  public:
- 
   /**
-  * @brief Standard eigenvalue problem constructor.
-  */
-  PowerIteration(const Eigen::MatrixXd& A) 
-      : A_(A) {
-      std::cout << "Initialisation" << std::endl;
+   * @brief Standard eigenvalue problem constructor.
+   */
+  PowerIteration(const Eigen::MatrixXd& A) : A_(A) {
+    std::cout << "Initialisation" << std::endl;
   }
 
   /**
-  * @brief Generalized eigenvalue problem constructor. 
-  */
-  PowerIteration(const Eigen::MatrixXd& A, const Eigen::MatrixXd& B) 
+   * @brief Generalized eigenvalue problem constructor.
+   */
+  PowerIteration(const Eigen::MatrixXd& A, const Eigen::MatrixXd& B)
       : A_(A), B_(B) {
-      std::cout << "Initialisation" << std::endl;
+    std::cout << "Initialisation" << std::endl;
   }
 
   /**
-  * @brief Solve the eigenvalue problem. 
-  */
+   * @brief Solve the eigenvalue problem.
+   */
   void solve();
 
  private:
+  //   double lambda_;
+  //   double tol_eigvector_ = 1e-10;
+  double tol_eigvalue_ = 1e-5;
 
-  double lambda_;
-  double tol_eigvector_ = 1e-10;
-  double tol_eigvalue_  = 1e-5;
-
-  Eigen::MatrixXd A_; 
+  Eigen::MatrixXd A_;
   Eigen::MatrixXd B_;
-  Eigen::ArrayXd  x_;
+  Eigen::ArrayXd x_;
 };
-
-
 
 }  // namespace Demeter

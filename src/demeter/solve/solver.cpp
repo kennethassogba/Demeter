@@ -21,7 +21,7 @@ void Solver::solve() {
   const auto ndof_per_group = 1;         // ncells * ndof_per_cell
   const auto ndof = ndof_per_group * 1;  // ngroups * ndofpergroup;
   flux_ = ArrayXd::Ones(ndof);
-  auto first_thermal_group_ = 1;  // todo
+  auto first_thermal_group_ = 1u;  // todo
 
   // Calcul des sources
   // Methode de la puissance iteree
@@ -59,19 +59,12 @@ void Solver::solve() {
 }
 
 void PowerIteration::solve() {
- 
-  size_t size;
-  int nb_ite;
-  double lambda_k1;
-  double lambda_k2;
-  double error_eigvalue;
-  
   // Initialization
-  nb_ite = 0;
-  lambda_k1 = 1;
-  lambda_k2 = 0;
-  error_eigvalue = 10;
-  size = A_.rows();
+  auto nb_ite = 0;
+  double lambda_k1 = 1.;
+  double lambda_k2 = 0.;
+  double error_eigvalue = 10.;
+  auto size = A_.rows();
   Eigen::VectorXd x1 = Eigen::ArrayXd::Random(size);
   Eigen::VectorXd x2 = Eigen::ArrayXd::Ones(size);
 
@@ -86,8 +79,8 @@ void PowerIteration::solve() {
     error_eigvalue = std::abs((lambda_k2 - lambda_k1) / lambda_k2);
     lambda_k1 = lambda_k2;
   }
-  
+
   std::cout << "Eigenvalue: " << lambda_k2 << std::endl;
-  std::cout << "Iterations: " << nb_ite   << std::endl;
+  std::cout << "Iterations: " << nb_ite << std::endl;
 }
 }  // namespace Demeter

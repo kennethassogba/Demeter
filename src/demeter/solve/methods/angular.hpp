@@ -12,6 +12,9 @@ class AngularMethod {
   AngularMethod(Type type = Type::SN, unsigned order = 1)
       : type_(type), order_(order) {}
 
+  auto type() const -> Type { return type_; }
+  auto order() const -> unsigned { return order_; }
+
  private:
   Type type_;
   unsigned order_;

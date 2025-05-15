@@ -48,7 +48,6 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - [x] Setup clang-format with Google style.
 - [x] Setup clang-tidy.
 - [x] Fix how to launch clang-tidy locally and on action.
-- [x] Move bindings elsewhere
 - [x] Doc style (eg doxygen) and the way to generate it automatically.
 - [ ] Choose how to handle asserts: thow user errors at runtime and assert internal error on debug build
 - [ ] Add a Logger (spdlog, or nanolog or fmtlog) and std::format.
@@ -69,23 +68,6 @@ The physics is coded in C++, with Python as user interface for easy and fast usa
 - Eigen 3.3 and newer `apt install libeigen3-dev`.
 - Python 3.8 and newer `apt install libpython3-dev`
 - Doxygen 1.12 and newer `apt install doxygen`
-  
-## Build Python package
-
-```bash
-cd <project-directory>
-python -m venv pyenv
-source pyenv/bin/activate
-pip install numpy matplotlib
-pip install .
-```
-
-Following this, you should be able to  access the extension
-
-```bash
->>> from demeter import *
->>> help(Material)
-```
 
 ## Build and Run
 
@@ -124,7 +106,7 @@ cmake -S . -B build/ -D CMAKE_CXX_FLAGS=-fsanitize=memory
 ## Documentation
 
 The documentation is automatically generated using Doxygen. To
-install it, refer to: https://www.doxygen.nl/manual/install.html 
+install it, refer to: <https://www.doxygen.nl/manual/install.html>
 
 ### Generate the doc
 
@@ -132,5 +114,5 @@ install it, refer to: https://www.doxygen.nl/manual/install.html
 doxygen Doxyfile
 ```
 
-You can modify the configuration file Doxyfile to generate the 
+You can modify the configuration file Doxyfile to generate the
 documentation according to your preferences.

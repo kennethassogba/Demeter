@@ -4,7 +4,18 @@
 #include <iostream>
 #include <Eigen/Dense>
 
+// clang-format off
 namespace Demeter {
+
+// Define static members
+template <std::size_t nteta>
+typename Eigen::ArrayXd GaussLegendre<nteta>::weights_;
+
+template <std::size_t nteta>
+Eigen::ArrayXd GaussLegendre<nteta>::costeta_;
+
+template <std::size_t nteta>
+Eigen::ArrayXd GaussLegendre<nteta>::teta_;
 
 // nteta = 2
 template <>
@@ -458,3 +469,4 @@ void GaussLegendre<48>::initialization() {
 template class GaussLegendre<48>;
 
 } // namespace Demeter
+// clang-format on

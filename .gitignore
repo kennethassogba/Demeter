@@ -34,7 +34,7 @@ __pycache__
 *.egg-info
 pyenv
 
-# Doxygene documentation
+# Doxygen documentation
 *.html
 *.js
 *.tex
