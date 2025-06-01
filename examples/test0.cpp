@@ -15,6 +15,9 @@ int main() {
   using namespace Demeter;
   using namespace Eigen;
 
+  PrintBanner();
+  CheckOpenMP();
+
   // Dimensions du PDF en points (1 point ≈ 1/72 inch)
   const double width = 100;
   const double height = 100;
@@ -38,18 +41,16 @@ int main() {
   // Nettoyage
   cairo_destroy(cr);
   cairo_surface_destroy(surface);
-
-  CheckOpenMP();
-
+ 
   // Define variables
   constexpr size_t ngroups = 2;
   //   constexpr size_t naniso  = 0;
   //   constexpr size_t nmoms   = (naniso+1)*(naniso+1);
 
   // Test sum of gaussian weights
-  GaussLegendre<48> gauss{};
-  const auto& weights = gauss.getweights();
-  std::cout << weights.sum() << '\n';
+  //GaussLegendre<48> gauss{};
+  //const auto& weights = gauss.getweights();
+  //std::cout << weights.sum() << '\n';
 
   // Test power iteration solver
   // 1st problem, vp : (5, 2)
@@ -59,15 +60,15 @@ int main() {
 
   A1 << 4, 1, 1, 3;
 
-  PowerIteration PowIteA(A1);
-  PowIteA.solve();
+  //PowerIteration PowIteA(A1);
+  //PowIteA.solve();
 
   // 2nd problem, vp : (11.25, 7.34, 5.11, 4.30)
   Eigen::MatrixXd B1(4, 4);
   B1 << 10, 2, 0, 0, 2, 8, 1, 0, 0, 1, 6, 1, 0, 0, 1, 4;
 
-  PowerIteration PowIteB(B1);
-  PowIteB.solve();
+  //PowerIteration PowIteB(B1);
+  //PowIteB.solve();
 
   // 3rd problem
   // vp : (11.34, 11.28, 8.56, 6.68, 4.84, 2.20)
@@ -81,18 +82,18 @@ int main() {
         0,  0, 0, 0, 1, 3;
   // clang-format on
 
-  PowerIteration PowIteC(C1);
-  PowIteC.solve();
+  //PowerIteration PowIteC(C1);
+  //PowIteC.solve();
 
   // Test linear solvers
   Eigen::Matrix2f A, b;
   A << 2, -1, -1, 3;
   b << 1, 2, 3, 1;
 
-  LinearSolver LinSolver(A, b);
-  LinSolver.solve_llt();
-  LinSolver.solve_ldtl();
-  LinSolver.solve_PartialPivLu();
+  //LinearSolver LinSolver(A, b);
+  //LinSolver.solve_llt();
+  //LinSolver.solve_ldtl();
+  //LinSolver.solve_PartialPivLu();
   std::cout << '\n';
 
   // Define cross sections

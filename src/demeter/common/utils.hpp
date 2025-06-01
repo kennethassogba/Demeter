@@ -19,6 +19,8 @@ namespace Demeter {
 
 void CheckOpenMP();
 
+void PrintBanner();
+
 /*auto watch =
     [&](std::vector<std::variant<std::reference_wrapper<Material>,
                                  std::reference_wrapper<Cell>,
