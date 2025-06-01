@@ -56,6 +56,9 @@ jobs:
     - name: Install libomp-dev clang-tidy clang-format
       run: sudo apt install -y clang-tidy clang-format libomp-dev
 
+    - name: Install libcairo2-dev clang-tidy clang-format
+      run: sudo apt install -y clang-tidy clang-format libcairo2-dev
+
     - name: Install NumPy scipy
       run: |
         python -m pip install numpy scipy
@@ -78,11 +81,7 @@ jobs:
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
     - name: Run example
-<<<<<<< HEAD
-      run: ${{github.workspace}}/build/main
-=======
       run: ${{github.workspace}}/build/examples/test0
->>>>>>> d17d3b6... Bug correction for github checks
     
     # - name: clang-tidy
     #   run: make clang-tidy

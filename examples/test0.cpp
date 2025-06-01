@@ -3,6 +3,10 @@
 #include <omp.h>
 #include <Eigen/Dense>
 
+#include <cairo/cairo.h>
+#include <cairo/cairo-pdf.h>  // important pour PDF
+#include <cairo/cairo-svg.h> 
+
 #include "demeter/model.hpp"
 #include "demeter/solve.hpp"
 #include "demeter/quadrature.hpp"
@@ -10,6 +14,30 @@
 int main() {
   using namespace Demeter;
   using namespace Eigen;
+
+  // Dimensions du PDF en points (1 point ≈ 1/72 inch)
+  const double width = 100;
+  const double height = 100;
+
+  // Créer une surface PDF
+  cairo_surface_t* surface = cairo_pdf_surface_create("carre.pdf", width, height);
+  cairo_t* cr = cairo_create(surface);
+
+  // Optionnel : fond blanc
+  cairo_set_source_rgb(cr, 1, 1, 1);
+  cairo_paint(cr);
+
+  // Définir la couleur du carré (noir)
+  cairo_set_source_rgb(cr, 0.2549, 0.4118, 0.8824); // bleu roi
+
+
+  // Tracer un carré de 5x5 unités à partir de (10,10)
+  cairo_rectangle(cr, 0, 0, 100, 100);
+  cairo_fill(cr);
+
+  // Nettoyage
+  cairo_destroy(cr);
+  cairo_surface_destroy(surface);
 
   CheckOpenMP();
 
