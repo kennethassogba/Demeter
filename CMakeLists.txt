@@ -29,6 +29,11 @@ endif()
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 set(LINK_LIBS ${LINK_LIBS} Eigen3::Eigen)
 
+# Cairo 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(CAIRO REQUIRED cairo)
+set(LINK_LIBS ${LINK_LIBS} ${CAIRO_LIBRARIES})
+
 # Verbose
 include(CMakePrintHelpers)
 cmake_print_variables(PROJECT_SOURCE_DIR CMAKE_BUILD_TYPE CMAKE_CURRENT_SOURCE_DIR)
