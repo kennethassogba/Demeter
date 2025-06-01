@@ -56,6 +56,9 @@ jobs:
     - name: Install libomp-dev clang-tidy clang-format
       run: sudo apt install -y clang-tidy clang-format libomp-dev
 
+    - name: Install libcairo2-dev clang-tidy clang-format
+      run: sudo apt install -y clang-tidy clang-format libcairo2-dev
+
     - name: Install NumPy scipy
       run: |
         python -m pip install numpy scipy
