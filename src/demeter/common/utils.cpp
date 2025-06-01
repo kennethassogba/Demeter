@@ -1,5 +1,9 @@
 #include "utils.hpp"
-
+// #include <filesystem>
+// #include <nanobind/nanobind.h>
+//namespace nb = nanobind;
+//namespace fs = std::filesystem;
+//
 namespace Demeter {
 
 void CheckOpenMP() {
@@ -25,5 +29,11 @@ void PrintBanner() {
 
 )" << std::endl;
 }
+
+//NB_MODULE(demeter, m) {
+//    m.def("PrintBanner",
+//          static_cast<void(*)(const std::string&)>(&PrintBanner),
+//          "Affiche une bannière de projet à partir du nom de fichier");
+//}
 
 }  // namespace Demeter
