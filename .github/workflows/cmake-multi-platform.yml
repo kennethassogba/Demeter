@@ -78,7 +78,11 @@ jobs:
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
     - name: Run example
+<<<<<<< HEAD
       run: ${{github.workspace}}/build/main
+=======
+      run: ${{github.workspace}}/build/examples/test0
+>>>>>>> d17d3b6... Bug correction for github checks
     
     # - name: clang-tidy
     #   run: make clang-tidy
